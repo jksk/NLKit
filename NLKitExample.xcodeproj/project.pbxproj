@@ -7,12 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09322C821519A450003306C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322C7F1519A450003306C7 /* AppDelegate.m */; };
+		09322C831519A450003306C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322C811519A450003306C7 /* ViewController.m */; };
+		09322CFB1519A4E7003306C7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09322CF81519A4E7003306C7 /* MessageUI.framework */; };
+		09322CFC1519A4E7003306C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09322CF91519A4E7003306C7 /* QuartzCore.framework */; };
+		09322CFD1519A4E7003306C7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09322CFA1519A4E7003306C7 /* Security.framework */; };
+		09322CFF1519A4FA003306C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09322CFE1519A4FA003306C7 /* CoreLocation.framework */; };
+		09322D501519A536003306C7 /* NSArray+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D031519A536003306C7 /* NSArray+NLKit.m */; };
+		09322D511519A536003306C7 /* NSData+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D051519A536003306C7 /* NSData+NLKit.m */; };
+		09322D521519A536003306C7 /* NSDate+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D071519A536003306C7 /* NSDate+NLKit.m */; };
+		09322D531519A536003306C7 /* NSDateFormatter+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D091519A536003306C7 /* NSDateFormatter+NLKit.m */; };
+		09322D541519A536003306C7 /* NSDictionary+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D0B1519A536003306C7 /* NSDictionary+NLKit.m */; };
+		09322D551519A536003306C7 /* NSNotificationCenter+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D0D1519A536003306C7 /* NSNotificationCenter+NLKit.m */; };
+		09322D561519A536003306C7 /* NSNotificationCenter+NLKit_Threading.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D0F1519A536003306C7 /* NSNotificationCenter+NLKit_Threading.m */; };
+		09322D571519A536003306C7 /* NSNumber+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D111519A536003306C7 /* NSNumber+NLKit.m */; };
+		09322D581519A536003306C7 /* NSString+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D131519A536003306C7 /* NSString+NLKit.m */; };
+		09322D591519A536003306C7 /* NSString+NLKit_Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D151519A536003306C7 /* NSString+NLKit_Hash.m */; };
+		09322D5A1519A536003306C7 /* NSUserDefaults+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D171519A536003306C7 /* NSUserDefaults+NLKit.m */; };
+		09322D5B1519A536003306C7 /* UIApplication+NLKit_NetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D191519A536003306C7 /* UIApplication+NLKit_NetworkActivity.m */; };
+		09322D5C1519A536003306C7 /* UIBarButtonItem+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D1B1519A536003306C7 /* UIBarButtonItem+NLKit.m */; };
+		09322D5D1519A536003306C7 /* UIColor+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D1D1519A536003306C7 /* UIColor+NLKit.m */; };
+		09322D5E1519A536003306C7 /* UIDevice+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D1F1519A536003306C7 /* UIDevice+NLKit.m */; };
+		09322D5F1519A536003306C7 /* UIImage+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D211519A536003306C7 /* UIImage+NLKit.m */; };
+		09322D601519A536003306C7 /* UITableView+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D231519A536003306C7 /* UITableView+NLKit.m */; };
+		09322D611519A536003306C7 /* UIView+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D251519A536003306C7 /* UIView+NLKit.m */; };
+		09322D621519A536003306C7 /* UIView+NLKit_Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D271519A536003306C7 /* UIView+NLKit_Animations.m */; };
+		09322D631519A536003306C7 /* UIWindow+NLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D291519A536003306C7 /* UIWindow+NLKit.m */; };
+		09322D641519A536003306C7 /* NLKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D2C1519A536003306C7 /* NLKeychain.m */; };
+		09322D651519A536003306C7 /* NLLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D2E1519A536003306C7 /* NLLocationController.m */; };
+		09322D661519A536003306C7 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D311519A536003306C7 /* NSData+Base64.m */; };
+		09322D671519A536003306C7 /* NLMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 09322D341519A536003306C7 /* NLMath.c */; };
+		09322D681519A536003306C7 /* NLTiming.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D371519A536003306C7 /* NLTiming.m */; };
+		09322D691519A536003306C7 /* NLArrayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D3A1519A536003306C7 /* NLArrayTableViewController.m */; };
+		09322D6A1519A536003306C7 /* NLFetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D3C1519A536003306C7 /* NLFetchedResultsTableViewController.m */; };
+		09322D6B1519A536003306C7 /* NLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D3E1519A536003306C7 /* NLTableViewController.m */; };
+		09322D6C1519A536003306C7 /* NLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D401519A536003306C7 /* NLViewController.m */; };
+		09322D6D1519A536003306C7 /* NLActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D431519A536003306C7 /* NLActivityIndicatorView.m */; };
+		09322D6E1519A536003306C7 /* NLBarActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D451519A536003306C7 /* NLBarActivityIndicatorView.m */; };
+		09322D6F1519A536003306C7 /* NLDotActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D471519A536003306C7 /* NLDotActivityIndicatorView.m */; };
+		09322D701519A536003306C7 /* NLEmbossedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D491519A536003306C7 /* NLEmbossedLabel.m */; };
+		09322D711519A536003306C7 /* NLFastDrawTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4B1519A536003306C7 /* NLFastDrawTableViewCell.m */; };
+		09322D721519A536003306C7 /* NLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4D1519A536003306C7 /* NLProgressView.m */; };
+		09322D731519A536003306C7 /* NLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4F1519A536003306C7 /* NLTableViewCell.m */; };
 		09F28FCB1519A40900677785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCA1519A40900677785 /* UIKit.framework */; };
 		09F28FCD1519A40900677785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCC1519A40900677785 /* Foundation.framework */; };
 		09F28FCF1519A40900677785 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCE1519A40900677785 /* CoreGraphics.framework */; };
 		09F28FD51519A40900677785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09F28FD31519A40900677785 /* InfoPlist.strings */; };
 		09F28FD71519A40900677785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F28FD61519A40900677785 /* main.m */; };
-		09F28FDB1519A40900677785 /* NLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F28FDA1519A40900677785 /* NLAppDelegate.m */; };
 		09F28FE31519A40900677785 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FE21519A40900677785 /* SenTestingKit.framework */; };
 		09F28FE41519A40900677785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCA1519A40900677785 /* UIKit.framework */; };
 		09F28FE51519A40900677785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCC1519A40900677785 /* Foundation.framework */; };
@@ -31,21 +72,101 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09322C7E1519A450003306C7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		09322C7F1519A450003306C7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		09322C801519A450003306C7 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		09322C811519A450003306C7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		09322CF81519A4E7003306C7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		09322CF91519A4E7003306C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		09322CFA1519A4E7003306C7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		09322CFE1519A4FA003306C7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		09322D021519A536003306C7 /* NSArray+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NLKit.h"; sourceTree = "<group>"; };
+		09322D031519A536003306C7 /* NSArray+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NLKit.m"; sourceTree = "<group>"; };
+		09322D041519A536003306C7 /* NSData+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+NLKit.h"; sourceTree = "<group>"; };
+		09322D051519A536003306C7 /* NSData+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NLKit.m"; sourceTree = "<group>"; };
+		09322D061519A536003306C7 /* NSDate+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NLKit.h"; sourceTree = "<group>"; };
+		09322D071519A536003306C7 /* NSDate+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NLKit.m"; sourceTree = "<group>"; };
+		09322D081519A536003306C7 /* NSDateFormatter+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+NLKit.h"; sourceTree = "<group>"; };
+		09322D091519A536003306C7 /* NSDateFormatter+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+NLKit.m"; sourceTree = "<group>"; };
+		09322D0A1519A536003306C7 /* NSDictionary+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NLKit.h"; sourceTree = "<group>"; };
+		09322D0B1519A536003306C7 /* NSDictionary+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NLKit.m"; sourceTree = "<group>"; };
+		09322D0C1519A536003306C7 /* NSNotificationCenter+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+NLKit.h"; sourceTree = "<group>"; };
+		09322D0D1519A536003306C7 /* NSNotificationCenter+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+NLKit.m"; sourceTree = "<group>"; };
+		09322D0E1519A536003306C7 /* NSNotificationCenter+NLKit_Threading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+NLKit_Threading.h"; sourceTree = "<group>"; };
+		09322D0F1519A536003306C7 /* NSNotificationCenter+NLKit_Threading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+NLKit_Threading.m"; sourceTree = "<group>"; };
+		09322D101519A536003306C7 /* NSNumber+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+NLKit.h"; sourceTree = "<group>"; };
+		09322D111519A536003306C7 /* NSNumber+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+NLKit.m"; sourceTree = "<group>"; };
+		09322D121519A536003306C7 /* NSString+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NLKit.h"; sourceTree = "<group>"; };
+		09322D131519A536003306C7 /* NSString+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NLKit.m"; sourceTree = "<group>"; };
+		09322D141519A536003306C7 /* NSString+NLKit_Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NLKit_Hash.h"; sourceTree = "<group>"; };
+		09322D151519A536003306C7 /* NSString+NLKit_Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NLKit_Hash.m"; sourceTree = "<group>"; };
+		09322D161519A536003306C7 /* NSUserDefaults+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+NLKit.h"; sourceTree = "<group>"; };
+		09322D171519A536003306C7 /* NSUserDefaults+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+NLKit.m"; sourceTree = "<group>"; };
+		09322D181519A536003306C7 /* UIApplication+NLKit_NetworkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NLKit_NetworkActivity.h"; sourceTree = "<group>"; };
+		09322D191519A536003306C7 /* UIApplication+NLKit_NetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NLKit_NetworkActivity.m"; sourceTree = "<group>"; };
+		09322D1A1519A536003306C7 /* UIBarButtonItem+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+NLKit.h"; sourceTree = "<group>"; };
+		09322D1B1519A536003306C7 /* UIBarButtonItem+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+NLKit.m"; sourceTree = "<group>"; };
+		09322D1C1519A536003306C7 /* UIColor+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NLKit.h"; sourceTree = "<group>"; };
+		09322D1D1519A536003306C7 /* UIColor+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NLKit.m"; sourceTree = "<group>"; };
+		09322D1E1519A536003306C7 /* UIDevice+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+NLKit.h"; sourceTree = "<group>"; };
+		09322D1F1519A536003306C7 /* UIDevice+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+NLKit.m"; sourceTree = "<group>"; };
+		09322D201519A536003306C7 /* UIImage+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+NLKit.h"; sourceTree = "<group>"; };
+		09322D211519A536003306C7 /* UIImage+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NLKit.m"; sourceTree = "<group>"; };
+		09322D221519A536003306C7 /* UITableView+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+NLKit.h"; sourceTree = "<group>"; };
+		09322D231519A536003306C7 /* UITableView+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+NLKit.m"; sourceTree = "<group>"; };
+		09322D241519A536003306C7 /* UIView+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NLKit.h"; sourceTree = "<group>"; };
+		09322D251519A536003306C7 /* UIView+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NLKit.m"; sourceTree = "<group>"; };
+		09322D261519A536003306C7 /* UIView+NLKit_Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NLKit_Animations.h"; sourceTree = "<group>"; };
+		09322D271519A536003306C7 /* UIView+NLKit_Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NLKit_Animations.m"; sourceTree = "<group>"; };
+		09322D281519A536003306C7 /* UIWindow+NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+NLKit.h"; sourceTree = "<group>"; };
+		09322D291519A536003306C7 /* UIWindow+NLKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+NLKit.m"; sourceTree = "<group>"; };
+		09322D2B1519A536003306C7 /* NLKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLKeychain.h; sourceTree = "<group>"; };
+		09322D2C1519A536003306C7 /* NLKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLKeychain.m; sourceTree = "<group>"; };
+		09322D2D1519A536003306C7 /* NLLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLLocationController.h; sourceTree = "<group>"; };
+		09322D2E1519A536003306C7 /* NLLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLLocationController.m; sourceTree = "<group>"; };
+		09322D301519A536003306C7 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		09322D311519A536003306C7 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		09322D321519A536003306C7 /* NLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLKit.h; sourceTree = "<group>"; };
+		09322D331519A536003306C7 /* NLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLMacros.h; sourceTree = "<group>"; };
+		09322D341519A536003306C7 /* NLMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NLMath.c; sourceTree = "<group>"; };
+		09322D351519A536003306C7 /* NLMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLMath.h; sourceTree = "<group>"; };
+		09322D361519A536003306C7 /* NLTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLTiming.h; sourceTree = "<group>"; };
+		09322D371519A536003306C7 /* NLTiming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLTiming.m; sourceTree = "<group>"; };
+		09322D391519A536003306C7 /* NLArrayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLArrayTableViewController.h; sourceTree = "<group>"; };
+		09322D3A1519A536003306C7 /* NLArrayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLArrayTableViewController.m; sourceTree = "<group>"; };
+		09322D3B1519A536003306C7 /* NLFetchedResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLFetchedResultsTableViewController.h; sourceTree = "<group>"; };
+		09322D3C1519A536003306C7 /* NLFetchedResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLFetchedResultsTableViewController.m; sourceTree = "<group>"; };
+		09322D3D1519A536003306C7 /* NLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLTableViewController.h; sourceTree = "<group>"; };
+		09322D3E1519A536003306C7 /* NLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLTableViewController.m; sourceTree = "<group>"; };
+		09322D3F1519A536003306C7 /* NLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLViewController.h; sourceTree = "<group>"; };
+		09322D401519A536003306C7 /* NLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLViewController.m; sourceTree = "<group>"; };
+		09322D421519A536003306C7 /* NLActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLActivityIndicatorView.h; sourceTree = "<group>"; };
+		09322D431519A536003306C7 /* NLActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLActivityIndicatorView.m; sourceTree = "<group>"; };
+		09322D441519A536003306C7 /* NLBarActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLBarActivityIndicatorView.h; sourceTree = "<group>"; };
+		09322D451519A536003306C7 /* NLBarActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLBarActivityIndicatorView.m; sourceTree = "<group>"; };
+		09322D461519A536003306C7 /* NLDotActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDotActivityIndicatorView.h; sourceTree = "<group>"; };
+		09322D471519A536003306C7 /* NLDotActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLDotActivityIndicatorView.m; sourceTree = "<group>"; };
+		09322D481519A536003306C7 /* NLEmbossedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLEmbossedLabel.h; sourceTree = "<group>"; };
+		09322D491519A536003306C7 /* NLEmbossedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLEmbossedLabel.m; sourceTree = "<group>"; };
+		09322D4A1519A536003306C7 /* NLFastDrawTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLFastDrawTableViewCell.h; sourceTree = "<group>"; };
+		09322D4B1519A536003306C7 /* NLFastDrawTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLFastDrawTableViewCell.m; sourceTree = "<group>"; };
+		09322D4C1519A536003306C7 /* NLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLProgressView.h; sourceTree = "<group>"; };
+		09322D4D1519A536003306C7 /* NLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLProgressView.m; sourceTree = "<group>"; };
+		09322D4E1519A536003306C7 /* NLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLTableViewCell.h; sourceTree = "<group>"; };
+		09322D4F1519A536003306C7 /* NLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLTableViewCell.m; sourceTree = "<group>"; };
 		09F28FC61519A40900677785 /* NLKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NLKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F28FCA1519A40900677785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09F28FCC1519A40900677785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09F28FCE1519A40900677785 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		09F28FD21519A40900677785 /* NLKitExample-Info.plist */ = {isa = PBXFileReference; path = "NLKitExample-Info.plist"; sourceTree = "<group>"; };
+		09F28FD21519A40900677785 /* NLKitExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NLKitExample-Info.plist"; sourceTree = "<group>"; };
 		09F28FD41519A40900677785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		09F28FD61519A40900677785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		09F28FD81519A40900677785 /* NLKitExample-Prefix.pch */ = {isa = PBXFileReference; path = "NLKitExample-Prefix.pch"; sourceTree = "<group>"; };
-		09F28FD91519A40900677785 /* NLAppDelegate.h */ = {isa = PBXFileReference; path = NLAppDelegate.h; sourceTree = "<group>"; };
-		09F28FDA1519A40900677785 /* NLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NLAppDelegate.m; sourceTree = "<group>"; };
+		09F28FD81519A40900677785 /* NLKitExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NLKitExample-Prefix.pch"; sourceTree = "<group>"; };
 		09F28FE11519A40900677785 /* NLKitExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NLKitExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F28FE21519A40900677785 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		09F28FEA1519A40900677785 /* NLKitExampleTests-Info.plist */ = {isa = PBXFileReference; path = "NLKitExampleTests-Info.plist"; sourceTree = "<group>"; };
+		09F28FEA1519A40900677785 /* NLKitExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NLKitExampleTests-Info.plist"; sourceTree = "<group>"; };
 		09F28FEC1519A40900677785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		09F28FEE1519A40900677785 /* NLKitExampleTests.h */ = {isa = PBXFileReference; path = NLKitExampleTests.h; sourceTree = "<group>"; };
+		09F28FEE1519A40900677785 /* NLKitExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NLKitExampleTests.h; sourceTree = "<group>"; };
 		09F28FEF1519A40900677785 /* NLKitExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NLKitExampleTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +175,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09322CFF1519A4FA003306C7 /* CoreLocation.framework in Frameworks */,
+				09322CFB1519A4E7003306C7 /* MessageUI.framework in Frameworks */,
+				09322CFC1519A4E7003306C7 /* QuartzCore.framework in Frameworks */,
+				09322CFD1519A4E7003306C7 /* Security.framework in Frameworks */,
 				09F28FCB1519A40900677785 /* UIKit.framework in Frameworks */,
 				09F28FCD1519A40900677785 /* Foundation.framework in Frameworks */,
 				09F28FCF1519A40900677785 /* CoreGraphics.framework in Frameworks */,
@@ -73,9 +198,131 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09322D001519A536003306C7 /* NLKit */ = {
+			isa = PBXGroup;
+			children = (
+				09322D011519A536003306C7 /* Categories */,
+				09322D2A1519A536003306C7 /* Decorators */,
+				09322D2F1519A536003306C7 /* External */,
+				09322D321519A536003306C7 /* NLKit.h */,
+				09322D331519A536003306C7 /* NLMacros.h */,
+				09322D341519A536003306C7 /* NLMath.c */,
+				09322D351519A536003306C7 /* NLMath.h */,
+				09322D361519A536003306C7 /* NLTiming.h */,
+				09322D371519A536003306C7 /* NLTiming.m */,
+				09322D381519A536003306C7 /* View Controllers */,
+				09322D411519A536003306C7 /* Views */,
+			);
+			path = NLKit;
+			sourceTree = "<group>";
+		};
+		09322D011519A536003306C7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				09322D021519A536003306C7 /* NSArray+NLKit.h */,
+				09322D031519A536003306C7 /* NSArray+NLKit.m */,
+				09322D041519A536003306C7 /* NSData+NLKit.h */,
+				09322D051519A536003306C7 /* NSData+NLKit.m */,
+				09322D061519A536003306C7 /* NSDate+NLKit.h */,
+				09322D071519A536003306C7 /* NSDate+NLKit.m */,
+				09322D081519A536003306C7 /* NSDateFormatter+NLKit.h */,
+				09322D091519A536003306C7 /* NSDateFormatter+NLKit.m */,
+				09322D0A1519A536003306C7 /* NSDictionary+NLKit.h */,
+				09322D0B1519A536003306C7 /* NSDictionary+NLKit.m */,
+				09322D0C1519A536003306C7 /* NSNotificationCenter+NLKit.h */,
+				09322D0D1519A536003306C7 /* NSNotificationCenter+NLKit.m */,
+				09322D0E1519A536003306C7 /* NSNotificationCenter+NLKit_Threading.h */,
+				09322D0F1519A536003306C7 /* NSNotificationCenter+NLKit_Threading.m */,
+				09322D101519A536003306C7 /* NSNumber+NLKit.h */,
+				09322D111519A536003306C7 /* NSNumber+NLKit.m */,
+				09322D121519A536003306C7 /* NSString+NLKit.h */,
+				09322D131519A536003306C7 /* NSString+NLKit.m */,
+				09322D141519A536003306C7 /* NSString+NLKit_Hash.h */,
+				09322D151519A536003306C7 /* NSString+NLKit_Hash.m */,
+				09322D161519A536003306C7 /* NSUserDefaults+NLKit.h */,
+				09322D171519A536003306C7 /* NSUserDefaults+NLKit.m */,
+				09322D181519A536003306C7 /* UIApplication+NLKit_NetworkActivity.h */,
+				09322D191519A536003306C7 /* UIApplication+NLKit_NetworkActivity.m */,
+				09322D1A1519A536003306C7 /* UIBarButtonItem+NLKit.h */,
+				09322D1B1519A536003306C7 /* UIBarButtonItem+NLKit.m */,
+				09322D1C1519A536003306C7 /* UIColor+NLKit.h */,
+				09322D1D1519A536003306C7 /* UIColor+NLKit.m */,
+				09322D1E1519A536003306C7 /* UIDevice+NLKit.h */,
+				09322D1F1519A536003306C7 /* UIDevice+NLKit.m */,
+				09322D201519A536003306C7 /* UIImage+NLKit.h */,
+				09322D211519A536003306C7 /* UIImage+NLKit.m */,
+				09322D221519A536003306C7 /* UITableView+NLKit.h */,
+				09322D231519A536003306C7 /* UITableView+NLKit.m */,
+				09322D241519A536003306C7 /* UIView+NLKit.h */,
+				09322D251519A536003306C7 /* UIView+NLKit.m */,
+				09322D261519A536003306C7 /* UIView+NLKit_Animations.h */,
+				09322D271519A536003306C7 /* UIView+NLKit_Animations.m */,
+				09322D281519A536003306C7 /* UIWindow+NLKit.h */,
+				09322D291519A536003306C7 /* UIWindow+NLKit.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		09322D2A1519A536003306C7 /* Decorators */ = {
+			isa = PBXGroup;
+			children = (
+				09322D2B1519A536003306C7 /* NLKeychain.h */,
+				09322D2C1519A536003306C7 /* NLKeychain.m */,
+				09322D2D1519A536003306C7 /* NLLocationController.h */,
+				09322D2E1519A536003306C7 /* NLLocationController.m */,
+			);
+			path = Decorators;
+			sourceTree = "<group>";
+		};
+		09322D2F1519A536003306C7 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				09322D301519A536003306C7 /* NSData+Base64.h */,
+				09322D311519A536003306C7 /* NSData+Base64.m */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		09322D381519A536003306C7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				09322D391519A536003306C7 /* NLArrayTableViewController.h */,
+				09322D3A1519A536003306C7 /* NLArrayTableViewController.m */,
+				09322D3B1519A536003306C7 /* NLFetchedResultsTableViewController.h */,
+				09322D3C1519A536003306C7 /* NLFetchedResultsTableViewController.m */,
+				09322D3D1519A536003306C7 /* NLTableViewController.h */,
+				09322D3E1519A536003306C7 /* NLTableViewController.m */,
+				09322D3F1519A536003306C7 /* NLViewController.h */,
+				09322D401519A536003306C7 /* NLViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		09322D411519A536003306C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09322D421519A536003306C7 /* NLActivityIndicatorView.h */,
+				09322D431519A536003306C7 /* NLActivityIndicatorView.m */,
+				09322D441519A536003306C7 /* NLBarActivityIndicatorView.h */,
+				09322D451519A536003306C7 /* NLBarActivityIndicatorView.m */,
+				09322D461519A536003306C7 /* NLDotActivityIndicatorView.h */,
+				09322D471519A536003306C7 /* NLDotActivityIndicatorView.m */,
+				09322D481519A536003306C7 /* NLEmbossedLabel.h */,
+				09322D491519A536003306C7 /* NLEmbossedLabel.m */,
+				09322D4A1519A536003306C7 /* NLFastDrawTableViewCell.h */,
+				09322D4B1519A536003306C7 /* NLFastDrawTableViewCell.m */,
+				09322D4C1519A536003306C7 /* NLProgressView.h */,
+				09322D4D1519A536003306C7 /* NLProgressView.m */,
+				09322D4E1519A536003306C7 /* NLTableViewCell.h */,
+				09322D4F1519A536003306C7 /* NLTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		09F28FBB1519A40900677785 = {
 			isa = PBXGroup;
 			children = (
+				09322D001519A536003306C7 /* NLKit */,
 				09F28FD01519A40900677785 /* NLKitExample */,
 				09F28FE81519A40900677785 /* NLKitExampleTests */,
 				09F28FC91519A40900677785 /* Frameworks */,
@@ -95,6 +342,10 @@
 		09F28FC91519A40900677785 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09322CFE1519A4FA003306C7 /* CoreLocation.framework */,
+				09322CF81519A4E7003306C7 /* MessageUI.framework */,
+				09322CF91519A4E7003306C7 /* QuartzCore.framework */,
+				09322CFA1519A4E7003306C7 /* Security.framework */,
 				09F28FCA1519A40900677785 /* UIKit.framework */,
 				09F28FCC1519A40900677785 /* Foundation.framework */,
 				09F28FCE1519A40900677785 /* CoreGraphics.framework */,
@@ -106,9 +357,11 @@
 		09F28FD01519A40900677785 /* NLKitExample */ = {
 			isa = PBXGroup;
 			children = (
-				09F28FD91519A40900677785 /* NLAppDelegate.h */,
-				09F28FDA1519A40900677785 /* NLAppDelegate.m */,
 				09F28FD11519A40900677785 /* Supporting Files */,
+				09322C7E1519A450003306C7 /* AppDelegate.h */,
+				09322C7F1519A450003306C7 /* AppDelegate.m */,
+				09322C801519A450003306C7 /* ViewController.h */,
+				09322C811519A450003306C7 /* ViewController.m */,
 			);
 			path = NLKitExample;
 			sourceTree = "<group>";
@@ -250,7 +503,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F28FD71519A40900677785 /* main.m in Sources */,
-				09F28FDB1519A40900677785 /* NLAppDelegate.m in Sources */,
+				09322C821519A450003306C7 /* AppDelegate.m in Sources */,
+				09322C831519A450003306C7 /* ViewController.m in Sources */,
+				09322D501519A536003306C7 /* NSArray+NLKit.m in Sources */,
+				09322D511519A536003306C7 /* NSData+NLKit.m in Sources */,
+				09322D521519A536003306C7 /* NSDate+NLKit.m in Sources */,
+				09322D531519A536003306C7 /* NSDateFormatter+NLKit.m in Sources */,
+				09322D541519A536003306C7 /* NSDictionary+NLKit.m in Sources */,
+				09322D551519A536003306C7 /* NSNotificationCenter+NLKit.m in Sources */,
+				09322D561519A536003306C7 /* NSNotificationCenter+NLKit_Threading.m in Sources */,
+				09322D571519A536003306C7 /* NSNumber+NLKit.m in Sources */,
+				09322D581519A536003306C7 /* NSString+NLKit.m in Sources */,
+				09322D591519A536003306C7 /* NSString+NLKit_Hash.m in Sources */,
+				09322D5A1519A536003306C7 /* NSUserDefaults+NLKit.m in Sources */,
+				09322D5B1519A536003306C7 /* UIApplication+NLKit_NetworkActivity.m in Sources */,
+				09322D5C1519A536003306C7 /* UIBarButtonItem+NLKit.m in Sources */,
+				09322D5D1519A536003306C7 /* UIColor+NLKit.m in Sources */,
+				09322D5E1519A536003306C7 /* UIDevice+NLKit.m in Sources */,
+				09322D5F1519A536003306C7 /* UIImage+NLKit.m in Sources */,
+				09322D601519A536003306C7 /* UITableView+NLKit.m in Sources */,
+				09322D611519A536003306C7 /* UIView+NLKit.m in Sources */,
+				09322D621519A536003306C7 /* UIView+NLKit_Animations.m in Sources */,
+				09322D631519A536003306C7 /* UIWindow+NLKit.m in Sources */,
+				09322D641519A536003306C7 /* NLKeychain.m in Sources */,
+				09322D651519A536003306C7 /* NLLocationController.m in Sources */,
+				09322D661519A536003306C7 /* NSData+Base64.m in Sources */,
+				09322D671519A536003306C7 /* NLMath.c in Sources */,
+				09322D681519A536003306C7 /* NLTiming.m in Sources */,
+				09322D691519A536003306C7 /* NLArrayTableViewController.m in Sources */,
+				09322D6A1519A536003306C7 /* NLFetchedResultsTableViewController.m in Sources */,
+				09322D6B1519A536003306C7 /* NLTableViewController.m in Sources */,
+				09322D6C1519A536003306C7 /* NLViewController.m in Sources */,
+				09322D6D1519A536003306C7 /* NLActivityIndicatorView.m in Sources */,
+				09322D6E1519A536003306C7 /* NLBarActivityIndicatorView.m in Sources */,
+				09322D6F1519A536003306C7 /* NLDotActivityIndicatorView.m in Sources */,
+				09322D701519A536003306C7 /* NLEmbossedLabel.m in Sources */,
+				09322D711519A536003306C7 /* NLFastDrawTableViewCell.m in Sources */,
+				09322D721519A536003306C7 /* NLProgressView.m in Sources */,
+				09322D731519A536003306C7 /* NLTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +704,7 @@
 				09F28FF51519A40900677785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09F28FF61519A40900677785 /* Build configuration list for PBXNativeTarget "NLKitExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +713,7 @@
 				09F28FF81519A40900677785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

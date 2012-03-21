@@ -1,24 +1,28 @@
 //
-//  NLAppDelegate.m
-//  NLKitExample
+//  AppDelegate.m
+//  NLKit
 //
-//  Created by Jesper Skrufve on 21/3/12.
+//  Created by Jesper Skrufve on 6/3/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "NLAppDelegate.h"
+#import "AppDelegate.h"
+#import "ViewController.h"
+#import "NLKit.h"
 
-@implementation NLAppDelegate
+@implementation AppDelegate
 
-@synthesize window = _window;
+@synthesize
+window				= window_,
+navController		= navController_,
+rootViewController	= rootViewController_;
+
+#pragma mark - Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+	[[self window] makeKeyAndVisible];
+	return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -46,6 +50,36 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Property Accessors
+
+- (UIWindow *)window
+{
+	if (window_) return window_;
+	
+	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	[window_ setRootViewController:[self navController]];
+	
+	return window_;
+}
+
+- (UINavigationController *)navController
+{
+	if (navController_) return navController_;
+	
+	navController_ = [[UINavigationController alloc] initWithRootViewController:[self rootViewController]];
+	
+	return navController_;
+}
+
+- (ViewController *)rootViewController
+{
+	if (rootViewController_) return rootViewController_;
+	
+	rootViewController_ = [[ViewController alloc] init];
+	
+	return rootViewController_;
 }
 
 @end
