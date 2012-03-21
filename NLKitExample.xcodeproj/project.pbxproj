@@ -49,6 +49,8 @@
 		09322D711519A536003306C7 /* NLFastDrawTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4B1519A536003306C7 /* NLFastDrawTableViewCell.m */; };
 		09322D721519A536003306C7 /* NLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4D1519A536003306C7 /* NLProgressView.m */; };
 		09322D731519A536003306C7 /* NLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4F1519A536003306C7 /* NLTableViewCell.m */; };
+		09322D751519A5C1003306C7 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 09322D741519A5C1003306C7 /* README */; };
+		09322D771519A5CA003306C7 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 09322D761519A5CA003306C7 /* TODO */; };
 		09F28FCB1519A40900677785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCA1519A40900677785 /* UIKit.framework */; };
 		09F28FCD1519A40900677785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCC1519A40900677785 /* Foundation.framework */; };
 		09F28FCF1519A40900677785 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCE1519A40900677785 /* CoreGraphics.framework */; };
@@ -154,6 +156,8 @@
 		09322D4D1519A536003306C7 /* NLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLProgressView.m; sourceTree = "<group>"; };
 		09322D4E1519A536003306C7 /* NLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLTableViewCell.h; sourceTree = "<group>"; };
 		09322D4F1519A536003306C7 /* NLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLTableViewCell.m; sourceTree = "<group>"; };
+		09322D741519A5C1003306C7 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		09322D761519A5CA003306C7 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		09F28FC61519A40900677785 /* NLKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NLKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F28FCA1519A40900677785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09F28FCC1519A40900677785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -322,6 +326,8 @@
 		09F28FBB1519A40900677785 = {
 			isa = PBXGroup;
 			children = (
+				09322D761519A5CA003306C7 /* TODO */,
+				09322D741519A5C1003306C7 /* README */,
 				09322D001519A536003306C7 /* NLKit */,
 				09F28FD01519A40900677785 /* NLKitExample */,
 				09F28FE81519A40900677785 /* NLKitExampleTests */,
@@ -468,6 +474,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F28FD51519A40900677785 /* InfoPlist.strings in Resources */,
+				09322D751519A5C1003306C7 /* README in Resources */,
+				09322D771519A5CA003306C7 /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
