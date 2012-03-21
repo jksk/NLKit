@@ -51,6 +51,12 @@
 		09322D731519A536003306C7 /* NLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4F1519A536003306C7 /* NLTableViewCell.m */; };
 		09322D751519A5C1003306C7 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 09322D741519A5C1003306C7 /* README */; };
 		09322D771519A5CA003306C7 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 09322D761519A5CA003306C7 /* TODO */; };
+		09322D821519A616003306C7 /* NLMacrosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D7D1519A616003306C7 /* NLMacrosTests.m */; };
+		09322D831519A616003306C7 /* NLMathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D7F1519A616003306C7 /* NLMathTests.m */; };
+		09322D841519A616003306C7 /* NLKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D811519A616003306C7 /* NLKeychainTests.m */; };
+		09322D8C1519A63D003306C7 /* NSDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D871519A63D003306C7 /* NSDateFormatterTests.m */; };
+		09322D8D1519A63D003306C7 /* NSStringHashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D891519A63D003306C7 /* NSStringHashTests.m */; };
+		09322D8E1519A63D003306C7 /* NSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D8B1519A63D003306C7 /* NSStringTests.m */; };
 		09F28FCB1519A40900677785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCA1519A40900677785 /* UIKit.framework */; };
 		09F28FCD1519A40900677785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCC1519A40900677785 /* Foundation.framework */; };
 		09F28FCF1519A40900677785 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCE1519A40900677785 /* CoreGraphics.framework */; };
@@ -60,7 +66,6 @@
 		09F28FE41519A40900677785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCA1519A40900677785 /* UIKit.framework */; };
 		09F28FE51519A40900677785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F28FCC1519A40900677785 /* Foundation.framework */; };
 		09F28FED1519A40900677785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09F28FEB1519A40900677785 /* InfoPlist.strings */; };
-		09F28FF01519A40900677785 /* NLKitExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F28FEF1519A40900677785 /* NLKitExampleTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +163,18 @@
 		09322D4F1519A536003306C7 /* NLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLTableViewCell.m; sourceTree = "<group>"; };
 		09322D741519A5C1003306C7 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		09322D761519A5CA003306C7 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		09322D7C1519A616003306C7 /* NLMacrosTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLMacrosTests.h; sourceTree = "<group>"; };
+		09322D7D1519A616003306C7 /* NLMacrosTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLMacrosTests.m; sourceTree = "<group>"; };
+		09322D7E1519A616003306C7 /* NLMathTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLMathTests.h; sourceTree = "<group>"; };
+		09322D7F1519A616003306C7 /* NLMathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLMathTests.m; sourceTree = "<group>"; };
+		09322D801519A616003306C7 /* NLKeychainTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLKeychainTests.h; sourceTree = "<group>"; };
+		09322D811519A616003306C7 /* NLKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLKeychainTests.m; sourceTree = "<group>"; };
+		09322D861519A63D003306C7 /* NSDateFormatterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateFormatterTests.h; sourceTree = "<group>"; };
+		09322D871519A63D003306C7 /* NSDateFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatterTests.m; sourceTree = "<group>"; };
+		09322D881519A63D003306C7 /* NSStringHashTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringHashTests.h; sourceTree = "<group>"; };
+		09322D891519A63D003306C7 /* NSStringHashTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringHashTests.m; sourceTree = "<group>"; };
+		09322D8A1519A63D003306C7 /* NSStringTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringTests.h; sourceTree = "<group>"; };
+		09322D8B1519A63D003306C7 /* NSStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringTests.m; sourceTree = "<group>"; };
 		09F28FC61519A40900677785 /* NLKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NLKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F28FCA1519A40900677785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09F28FCC1519A40900677785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,8 +187,6 @@
 		09F28FE21519A40900677785 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		09F28FEA1519A40900677785 /* NLKitExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NLKitExampleTests-Info.plist"; sourceTree = "<group>"; };
 		09F28FEC1519A40900677785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		09F28FEE1519A40900677785 /* NLKitExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NLKitExampleTests.h; sourceTree = "<group>"; };
-		09F28FEF1519A40900677785 /* NLKitExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NLKitExampleTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +338,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		09322D851519A631003306C7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				09322D861519A63D003306C7 /* NSDateFormatterTests.h */,
+				09322D871519A63D003306C7 /* NSDateFormatterTests.m */,
+				09322D881519A63D003306C7 /* NSStringHashTests.h */,
+				09322D891519A63D003306C7 /* NSStringHashTests.m */,
+				09322D8A1519A63D003306C7 /* NSStringTests.h */,
+				09322D8B1519A63D003306C7 /* NSStringTests.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		09F28FBB1519A40900677785 = {
 			isa = PBXGroup;
 			children = (
@@ -386,9 +414,14 @@
 		09F28FE81519A40900677785 /* NLKitExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				09F28FEE1519A40900677785 /* NLKitExampleTests.h */,
-				09F28FEF1519A40900677785 /* NLKitExampleTests.m */,
+				09322D851519A631003306C7 /* Categories */,
 				09F28FE91519A40900677785 /* Supporting Files */,
+				09322D7C1519A616003306C7 /* NLMacrosTests.h */,
+				09322D7D1519A616003306C7 /* NLMacrosTests.m */,
+				09322D7E1519A616003306C7 /* NLMathTests.h */,
+				09322D7F1519A616003306C7 /* NLMathTests.m */,
+				09322D801519A616003306C7 /* NLKeychainTests.h */,
+				09322D811519A616003306C7 /* NLKeychainTests.m */,
 			);
 			path = NLKitExampleTests;
 			sourceTree = "<group>";
@@ -556,7 +589,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09F28FF01519A40900677785 /* NLKitExampleTests.m in Sources */,
+				09322D821519A616003306C7 /* NLMacrosTests.m in Sources */,
+				09322D831519A616003306C7 /* NLMathTests.m in Sources */,
+				09322D841519A616003306C7 /* NLKeychainTests.m in Sources */,
+				09322D8C1519A63D003306C7 /* NSDateFormatterTests.m in Sources */,
+				09322D8D1519A63D003306C7 /* NSStringHashTests.m in Sources */,
+				09322D8E1519A63D003306C7 /* NSStringTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
