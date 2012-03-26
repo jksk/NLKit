@@ -25,6 +25,8 @@
 #import "NLViewController.h"
 #import "NLMacros.h"
 
+#define KEYBOARD_ANIMATION_DURATION	0.3f
+
 @interface NLViewController ()
 
 - (void)addKeyboardObservers;
@@ -103,7 +105,7 @@ adjustViewWhenKeyboardDisplayed	= adjustViewWhenKeyboardDisplayed_;
 - (void)keyboardWillShow_:(NSNotification *)note
 {
 	[UIView
-	 animateWithDuration:0.3f
+	 animateWithDuration:KEYBOARD_ANIMATION_DURATION
 	 animations:^{
 		 
 		 CGRect frame = [[self view] frame];
@@ -115,7 +117,7 @@ adjustViewWhenKeyboardDisplayed	= adjustViewWhenKeyboardDisplayed_;
 - (void)keyboardWillHide_:(NSNotification *)note
 {
 	[UIView
-	 animateWithDuration:0.3f
+	 animateWithDuration:KEYBOARD_ANIMATION_DURATION
 	 animations:^{
 		 
 		 CGRect frame = [[self view] frame];
