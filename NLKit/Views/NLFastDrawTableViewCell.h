@@ -22,6 +22,9 @@
 //  IN THE SOFTWARE.
 //  
 
+// Based ABTableViewCell
+// By Loren Brichter
+
 #import "NLTableViewCell.h"
 
 @interface NLFastDrawTableViewCell : NLTableViewCell
