@@ -46,7 +46,6 @@
 		09322D6D1519A536003306C7 /* NLActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D431519A536003306C7 /* NLActivityIndicatorView.m */; };
 		09322D6E1519A536003306C7 /* NLBarActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D451519A536003306C7 /* NLBarActivityIndicatorView.m */; };
 		09322D6F1519A536003306C7 /* NLDotActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D471519A536003306C7 /* NLDotActivityIndicatorView.m */; };
-		09322D701519A536003306C7 /* NLEmbossedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D491519A536003306C7 /* NLEmbossedLabel.m */; };
 		09322D711519A536003306C7 /* NLFastDrawTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4B1519A536003306C7 /* NLFastDrawTableViewCell.m */; };
 		09322D721519A536003306C7 /* NLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4D1519A536003306C7 /* NLProgressView.m */; };
 		09322D731519A536003306C7 /* NLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09322D4F1519A536003306C7 /* NLTableViewCell.m */; };
@@ -155,8 +154,6 @@
 		09322D451519A536003306C7 /* NLBarActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLBarActivityIndicatorView.m; sourceTree = "<group>"; };
 		09322D461519A536003306C7 /* NLDotActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDotActivityIndicatorView.h; sourceTree = "<group>"; };
 		09322D471519A536003306C7 /* NLDotActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLDotActivityIndicatorView.m; sourceTree = "<group>"; };
-		09322D481519A536003306C7 /* NLEmbossedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLEmbossedLabel.h; sourceTree = "<group>"; };
-		09322D491519A536003306C7 /* NLEmbossedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLEmbossedLabel.m; sourceTree = "<group>"; };
 		09322D4A1519A536003306C7 /* NLFastDrawTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLFastDrawTableViewCell.h; sourceTree = "<group>"; };
 		09322D4B1519A536003306C7 /* NLFastDrawTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLFastDrawTableViewCell.m; sourceTree = "<group>"; };
 		09322D4C1519A536003306C7 /* NLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLProgressView.h; sourceTree = "<group>"; };
@@ -328,8 +325,6 @@
 				09322D451519A536003306C7 /* NLBarActivityIndicatorView.m */,
 				09322D461519A536003306C7 /* NLDotActivityIndicatorView.h */,
 				09322D471519A536003306C7 /* NLDotActivityIndicatorView.m */,
-				09322D481519A536003306C7 /* NLEmbossedLabel.h */,
-				09322D491519A536003306C7 /* NLEmbossedLabel.m */,
 				09322D4A1519A536003306C7 /* NLFastDrawTableViewCell.h */,
 				09322D4B1519A536003306C7 /* NLFastDrawTableViewCell.m */,
 				09322D4C1519A536003306C7 /* NLProgressView.h */,
@@ -582,7 +577,6 @@
 				09322D6D1519A536003306C7 /* NLActivityIndicatorView.m in Sources */,
 				09322D6E1519A536003306C7 /* NLBarActivityIndicatorView.m in Sources */,
 				09322D6F1519A536003306C7 /* NLDotActivityIndicatorView.m in Sources */,
-				09322D701519A536003306C7 /* NLEmbossedLabel.m in Sources */,
 				09322D711519A536003306C7 /* NLFastDrawTableViewCell.m in Sources */,
 				09322D721519A536003306C7 /* NLProgressView.m in Sources */,
 				09322D731519A536003306C7 /* NLTableViewCell.m in Sources */,
