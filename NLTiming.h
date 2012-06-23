@@ -28,7 +28,7 @@
 double tlogBlock(void (^block)(void));
 
 // resets counter
-void tlogReset();
+void tlogReset(void);
 
 // displays counter since last tlog or reset, more overhead than block version
-void tlog();
+void tlog(void);
