@@ -108,13 +108,11 @@ tableViewUpdateAnimation	= tableViewUpdateAnimation_;
 {
 	switch (type) {
 		case NSFetchedResultsChangeInsert:
-			[[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-									withRowAnimation:tableViewUpdateAnimation_];
+			[[self tableView] insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:tableViewUpdateAnimation_];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
-			[[self tableView] deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-									withRowAnimation:tableViewUpdateAnimation_];
+			[[self tableView] deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:tableViewUpdateAnimation_];
 			break;
 			
 		case NSFetchedResultsChangeMove:
@@ -123,8 +121,7 @@ tableViewUpdateAnimation	= tableViewUpdateAnimation_;
 			
 		case NSFetchedResultsChangeUpdate: {
 			
-			id obj = [[self tableView] cellForRowAtIndexPath:indexPath];
-			NLTableViewCell* cell = _cast(NLTableViewCell, obj);
+			NLTableViewCell* cell = (NLTableViewCell *)[[self tableView] cellForRowAtIndexPath:indexPath];
 			if (cell)
 				[self configureCell:cell atIndexPath:indexPath];
 			
