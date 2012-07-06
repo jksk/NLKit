@@ -48,13 +48,13 @@ double tlogBlock(void (^block)(void))
 	return machTimeInterval(start, end);
 }
 
-void tlogReset()
+void tlogReset(void)
 {
 	_nltlog_time = mach_absolute_time();
 	dlog(@"tlogReset");
 }
 
-void tlog()
+void tlog(void)
 {
 	flog(machTimeInterval(_nltlog_time, mach_absolute_time()));
 	_nltlog_time = mach_absolute_time();
