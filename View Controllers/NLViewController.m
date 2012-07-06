@@ -25,16 +25,7 @@
 #import "NLViewController.h"
 #import "NLMacros.h"
 
-#define KEYBOARD_ANIMATION_DURATION	0.3f
 
-@interface NLViewController ()
-
-- (void)addKeyboardObservers;
-- (void)removeKeyboardObservers;
-
-@end
-
-#pragma mark -
 @implementation NLViewController
 
 @synthesize
@@ -80,67 +71,14 @@ adjustViewWhenKeyboardDisplayed	= adjustViewWhenKeyboardDisplayed_;
 		[self addKeyboardObservers];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+- (NSUInteger)supportedInterfaceOrientations
 {
-	return (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ||
-			UIInterfaceOrientationIsPortrait(toInterfaceOrientation));
-}
-
-#pragma mark - Public
-
-- (CGRect)defaultViewFrame
-{
-	CGRect frame = [[UIScreen mainScreen] bounds];
+	NSUInteger orientations = UIInterfaceOrientationPortrait|UIInterfaceOrientationPortraitUpsideDown;
 	
-	frame.size.height -= [[UIApplication sharedApplication] isStatusBarHidden] ? 0.f : 20.f;
-	frame.size.height -= CGRectGetHeight([[[self tabBarController] tabBar] frame]);
+	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+		orientations |= UIInterfaceOrientationLandscapeLeft|UIInterfaceOrientationLandscapeRight;
 	
-	if ([self navigationController] && ![[self navigationController] isNavigationBarHidden]) 
-		frame.size.height -= CGRectGetHeight([[[self navigationController] navigationBar] frame]);
-	
-	return frame;
-}
-
-#pragma mark - Events
-
-- (void)keyboardWillShow_:(NSNotification *)note
-{
-	[UIView
-	 animateWithDuration:KEYBOARD_ANIMATION_DURATION
-	 animations:^{
-		 
-		 CGRect frame = [[self view] frame];
-		 frame.size.height -= IPHONE_KEYBOARD_HEIGHT;
-		 [[self view] setFrame:frame];
-	 }];
-}
-
-- (void)keyboardWillHide_:(NSNotification *)note
-{
-	[UIView
-	 animateWithDuration:KEYBOARD_ANIMATION_DURATION
-	 animations:^{
-		 
-		 CGRect frame = [[self view] frame];
-		 frame.size.height += IPHONE_KEYBOARD_HEIGHT;
-		 [[self view] setFrame:frame];
-	 }];
-}
-
-#pragma mark - Helpers
-
-- (void)addKeyboardObservers
-{
-	NSNotificationCenter* nf = [NSNotificationCenter defaultCenter];
-	[nf addObserver:self selector:@selector(keyboardWillShow_:) name:UIKeyboardWillShowNotification object:nil];
-	[nf addObserver:self selector:@selector(keyboardWillHide_:) name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)removeKeyboardObservers
-{
-	NSNotificationCenter* nf = [NSNotificationCenter defaultCenter];
-	[nf removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-	[nf removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+	return orientations;
 }
 
 #pragma mark - Property Accessors

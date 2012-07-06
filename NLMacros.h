@@ -48,6 +48,7 @@
 
 #define ARC4RANDOM_MAX							UINT32_MAX
 #define IPHONE_KEYBOARD_HEIGHT					166.f
+#define KEYBOARD_ANIMATION_DURATION				0.3f
 
 #define _radians(degrees)						(M_PI * (degrees) / 180.0)
 #define _degrees(radians)						(180.0 * (radians) / M_PI)
