@@ -54,6 +54,14 @@ adjustViewWhenKeyboardDisplayed	= adjustViewWhenKeyboardDisplayed_;
 	[self removeKeyboardObservers];
 }
 
+- (void)didReceiveMemoryWarning
+{
+	[super didReceiveMemoryWarning];
+	
+	if (![self isViewLoaded])
+		[self removeKeyboardObservers];
+}
+
 #pragma mark - View lifecycle
 
 - (void)loadView
@@ -70,13 +78,6 @@ adjustViewWhenKeyboardDisplayed	= adjustViewWhenKeyboardDisplayed_;
 	
 	if (adjustViewWhenKeyboardDisplayed_)
 		[self addKeyboardObservers];
-}
-
-- (void)viewDidUnload
-{
-	[super viewDidUnload];
-	
-	[self removeKeyboardObservers];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation

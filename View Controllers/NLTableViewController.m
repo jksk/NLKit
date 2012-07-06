@@ -43,6 +43,14 @@ tableView	= tableView_;
 	return self;
 }
 
+- (void)didReceiveMemoryWarning
+{
+	[super didReceiveMemoryWarning];
+	
+	if (![self isViewLoaded])
+		[self setTableView:nil];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -50,13 +58,6 @@ tableView	= tableView_;
 	[super viewDidLoad];
 	
 	[[self view] addSubview:[self tableView]];
-}
-
-- (void)viewDidUnload
-{
-	[self setTableView:nil];
-	
-	[super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated
