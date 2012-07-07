@@ -23,6 +23,10 @@
 //
 
 #import "UIViewController+NLKit.h"
+#import "NLMacros.h"
+#import <objc/runtime.h>
+
+static const void* frameKey = "KeyboardShowFrameKey";
 
 @implementation UIViewController (NLKit)
 
@@ -43,25 +47,30 @@
 
 - (void)keyboardWillShow_:(NSNotification *)note
 {
+	CGRect frame		= [[self view] frame];
+	NSValue* frameValue	= [NSValue valueWithCGRect:frame];
+	frame.size.height  -= IPHONE_KEYBOARD_HEIGHT;
+	
+	objc_setAssociatedObject(self, frameKey, frameValue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	
 	[UIView
 	 animateWithDuration:KEYBOARD_ANIMATION_DURATION
 	 animations:^{
 		 
-		 CGRect frame = [[self view] frame];
-		 frame.size.height -= IPHONE_KEYBOARD_HEIGHT;
 		 [[self view] setFrame:frame];
 	 }];
 }
 
 - (void)keyboardWillHide_:(NSNotification *)note
 {
+	NSValue* frameValue = objc_getAssociatedObject(self, frameKey);
+	objc_setAssociatedObject(self, frameKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	
 	[UIView
 	 animateWithDuration:KEYBOARD_ANIMATION_DURATION
 	 animations:^{
 		 
-		 CGRect frame = [[self view] frame];
-		 frame.size.height += IPHONE_KEYBOARD_HEIGHT;
-		 [[self view] setFrame:frame];
+		 [[self view] setFrame:[frameValue CGRectValue]];
 	 }];
 }
 

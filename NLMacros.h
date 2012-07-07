@@ -87,15 +87,6 @@
 #define flog(f)			dlog(@"%f", f)
 #define ilog(i)			dlog(@"%i", i)
 
-// Cast macro, from https://github.com/nevyn/SPSuccinct
-#define _cast(cls, obj)	({ id obj2 = (obj); \
-						   if (obj2 && ![obj2 isKindOfClass:[cls class]]) \
-							   [NSException raise:@"Erronous cast" \
-										   format:@"%@ is not a %@", obj, NSStringFromClass([cls class])]; \
-						 (cls *)obj2; })
-
-#define _notNil(val)	({ __typeof__(val) val2 = (val); NSAssert(val2 != nil, @"Must not be nil"); val2; })
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //	Production macros
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,10 +97,6 @@
 #define slog(...)		do { } while(0);
 #define flog(...)		do { } while(0);
 #define ilog(...)		do { } while(0);
-
-// simple cast in production
-#define _cast(cls, obj)	({ (cls *)obj })
-#define _notNil(val)	({ val; })
 
 #endif
 #endif
