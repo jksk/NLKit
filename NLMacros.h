@@ -56,9 +56,7 @@
 #define _bw										__block __weak
 
 //	Convenience objects, mostly from https://bitbucket.org/snej/myutilities and https://github.com/nevyn/SPSuccinct
-#define _arr(...)								[NSArray arrayWithObjects:__VA_ARGS__, nil]
 #define _marr(...)								[NSMutableArray arrayWithObjects:__VA_ARGS__, nil]
-#define _dict(...)								[NSDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
 #define _mdict(...)								[NSMutableDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
 #define _set(...)								[NSSet setWithObjects:__VA_ARGS__, nil]
 #define _mset(...)								[NSMutableSet setWithObjects:__VA_ARGS__, nil]
@@ -68,10 +66,14 @@
 #define _str(...)								[NSString stringWithFormat:__VA_ARGS__]
 #define _mstr(...)								[NSMutableString stringWithFormat:__VA_ARGS__]
 #define _lstr(...)								NSLocalizedString([NSString stringWithFormat:__VA_ARGS__], nil)
-#define _num(i)									[NSNumber numberWithInteger:i]
-#define _numf(f)								[NSNumber numberWithDouble:f]
 #define _null									[NSNull null]
 #define _err(domain, num)						[NSError errorWithDomain:domain code:num userInfo:nil]
+
+// from http://www.coranac.com/documents/working-with-bits-and-bitfields/
+#define _bit(x)									(1 << (x))
+#define _bit_set(x, mask)						(x |= (mask))
+#define _bit_unset(x, mask)						(x &= ~(mask))
+#define _bit_flip(x, mask)						(x ^= (mask))
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //	Debug macros
