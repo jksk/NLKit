@@ -69,11 +69,12 @@
 #define _null									[NSNull null]
 #define _err(domain, num)						[NSError errorWithDomain:domain code:num userInfo:nil]
 
-// from http://www.coranac.com/documents/working-with-bits-and-bitfields/
+// mostly from http://www.coranac.com/documents/working-with-bits-and-bitfields/
 #define _bit(x)									(1 << (x))
 #define _bit_set(x, mask)						(x |= (mask))
 #define _bit_unset(x, mask)						(x &= ~(mask))
 #define _bit_flip(x, mask)						(x ^= (mask))
+#define _bit_is_set(x, mask)					((x & (mask)) != 0)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //	Debug macros
