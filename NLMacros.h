@@ -66,6 +66,8 @@
 #define _str(...)								[NSString stringWithFormat:__VA_ARGS__]
 #define _mstr(...)								[NSMutableString stringWithFormat:__VA_ARGS__]
 #define _lstr(...)								NSLocalizedString([NSString stringWithFormat:__VA_ARGS__], nil)
+#define _num(n)									[NSNumber numberWithInteger:n]
+#define _numf(n)								[NSNumber numberWithDouble:n]
 #define _null									[NSNull null]
 #define _err(domain, num)						[NSError errorWithDomain:domain code:num userInfo:nil]
 
