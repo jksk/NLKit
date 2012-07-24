@@ -78,10 +78,12 @@ lastUpdate				= lastUpdate_;
 }
 
 static NLLocationController* NLLocationControllerSingleton_ = nil;
+
 + (NLLocationController *)shared
 {
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
+		
 		NLLocationControllerSingleton_ = [[self alloc] init];
 	});
 	
@@ -90,9 +92,7 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 
 #pragma mark - CLLocationManagerDelegate
 
-- (void)locationManager:(CLLocationManager *)manager
-	didUpdateToLocation:(CLLocation *)newLocation
-		   fromLocation:(CLLocation *)oldLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
 	if (![self isActive])
 		return;
@@ -136,19 +136,26 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 
 - (void)setActive:(BOOL)active
 {
-	if (active && ![[self class] isAvailable]) return;
+	if (active && ![[self class] isAvailable])
+		return;
 	
 	CLLocationManager* lm = [self locationManager];
 	
 	if (active && !active_) {
 		
-		highResolution_ ? [lm startUpdatingLocation] : [lm startMonitoringSignificantLocationChanges];
+		if (highResolution_)
+			[lm startUpdatingLocation];
+		else
+			[lm startMonitoringSignificantLocationChanges];
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:NLLocationControllerNotifications.start object:self];
 	}
 	else if (!active && active_) {
 		
-		highResolution_ ? [lm stopUpdatingLocation] : [lm stopMonitoringSignificantLocationChanges];
+		if (highResolution_)
+			[lm stopUpdatingLocation];
+		else
+			[lm stopMonitoringSignificantLocationChanges];
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:NLLocationControllerNotifications.stop object:self];
 	}
@@ -179,7 +186,8 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 
 - (CLLocationManager *)locationManager
 {
-	if (locationManager_) return locationManager_;
+	if (locationManager_)
+		return locationManager_;
 	
 	locationManager_ = [[CLLocationManager alloc] init];
 	
