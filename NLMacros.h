@@ -48,6 +48,7 @@
 
 #define ARC4RANDOM_MAX							UINT32_MAX
 #define IPHONE_KEYBOARD_HEIGHT					166.f
+#define KEYBOARD_ANIMATION_DURATION				0.3f
 
 #define _radians(degrees)						(M_PI * (degrees) / 180.0)
 #define _degrees(radians)						(180.0 * (radians) / M_PI)
@@ -55,9 +56,7 @@
 #define _bw										__block __weak
 
 //	Convenience objects, mostly from https://bitbucket.org/snej/myutilities and https://github.com/nevyn/SPSuccinct
-#define _arr(...)								[NSArray arrayWithObjects:__VA_ARGS__, nil]
 #define _marr(...)								[NSMutableArray arrayWithObjects:__VA_ARGS__, nil]
-#define _dict(...)								[NSDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
 #define _mdict(...)								[NSMutableDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
 #define _set(...)								[NSSet setWithObjects:__VA_ARGS__, nil]
 #define _mset(...)								[NSMutableSet setWithObjects:__VA_ARGS__, nil]
@@ -67,10 +66,17 @@
 #define _str(...)								[NSString stringWithFormat:__VA_ARGS__]
 #define _mstr(...)								[NSMutableString stringWithFormat:__VA_ARGS__]
 #define _lstr(...)								NSLocalizedString([NSString stringWithFormat:__VA_ARGS__], nil)
-#define _num(i)									[NSNumber numberWithInteger:i]
-#define _numf(f)								[NSNumber numberWithDouble:f]
+#define _num(n)									[NSNumber numberWithInteger:n]
+#define _numf(n)								[NSNumber numberWithDouble:n]
 #define _null									[NSNull null]
 #define _err(domain, num)						[NSError errorWithDomain:domain code:num userInfo:nil]
+
+// mostly from http://www.coranac.com/documents/working-with-bits-and-bitfields/
+#define _bit(x)									(1 << (x))
+#define _bit_set(x, mask)						(x |= (mask))
+#define _bit_unset(x, mask)						(x &= ~(mask))
+#define _bit_flip(x, mask)						(x ^= (mask))
+#define _bit_is_set(x, mask)					((x & (mask)) != 0)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //	Debug macros
@@ -83,15 +89,6 @@
 #define flog(f)			dlog(@"%f", f)
 #define ilog(i)			dlog(@"%i", i)
 
-// Cast macro, from https://github.com/nevyn/SPSuccinct
-#define _cast(cls, obj)	({ id obj2 = (obj); \
-						   if (obj2 && ![obj2 isKindOfClass:[cls class]]) \
-							   [NSException raise:@"Erronous cast" \
-										   format:@"%@ is not a %@", obj, NSStringFromClass([cls class])]; \
-						 (cls *)obj2; })
-
-#define _notNil(val)	({ __typeof__(val) val2 = (val); NSAssert(val2 != nil, @"Must not be nil"); val2; })
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //	Production macros
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -102,10 +99,6 @@
 #define slog(...)		do { } while(0);
 #define flog(...)		do { } while(0);
 #define ilog(...)		do { } while(0);
-
-// simple cast in production
-#define _cast(cls, obj)	({ (cls *)obj })
-#define _notNil(val)	({ val; })
 
 #endif
 #endif

@@ -31,8 +31,10 @@
 
 // for static row height, block may be nil
 + (id)cellForTableView:(UITableView *)tableView cellInit:(void(^)(id cell))block;
++ (id)cellForTableView:(UITableView *)tableView style:(UITableViewCellStyle)style cellInit:(void(^)(id cell))block;
 
 // for variable row height, block may be nil
-+ (id)cellForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath cellInit:(void(^)(id cell))block; 
++ (id)cellForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath cellInit:(void(^)(id cell))block;
++ (id)cellForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style cellInit:(void(^)(id cell))block;
 
 @end

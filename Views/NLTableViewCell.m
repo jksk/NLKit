@@ -28,7 +28,7 @@
 
 @interface NLTableViewCell ()
 
-+ (id)cellWithSize:(CGSize)size forTableView:(UITableView *)tableView cellInit:(void (^)(id))block;
++ (id)cellWithSize:(CGSize)size style:(UITableViewCellStyle)style forTableView:(UITableView *)tableView cellInit:(void (^)(id))block;
 
 @end
 
@@ -48,24 +48,49 @@
 
 + (id)cellForTableView:(UITableView *)tableView cellInit:(void (^)(id))block
 {
-	return [self cellWithSize:[tableView cellSize] forTableView:tableView cellInit:block];
+	return [self cellWithSize:[tableView cellSize]
+						style:UITableViewCellStyleDefault
+				 forTableView:tableView
+					 cellInit:block];
+}
+
++ (id)cellForTableView:(UITableView *)tableView style:(UITableViewCellStyle)style cellInit:(void (^)(id))block
+{
+	return [self cellWithSize:[tableView cellSize]
+						style:style
+				 forTableView:tableView
+					 cellInit:block];
 }
 
 + (id)cellForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath cellInit:(void (^)(id))block
 {
-	return [self cellWithSize:[tableView cellSizeForIndexPath:indexPath] forTableView:tableView cellInit:block];
+	return [self cellWithSize:[tableView cellSizeForIndexPath:indexPath]
+						style:UITableViewCellStyleDefault
+				 forTableView:tableView
+					 cellInit:block];
+}
+
++ (id)cellForTableView:(UITableView *)tableView
+		   atIndexPath:(NSIndexPath *)indexPath
+				 style:(UITableViewCellStyle)style
+			  cellInit:(void (^)(id))block
+{
+	return [self cellWithSize:[tableView cellSizeForIndexPath:indexPath]
+						style:style
+				 forTableView:tableView
+					 cellInit:block];
 }
 
 #pragma mark - Helpers
 
-+ (id)cellWithSize:(CGSize)size forTableView:(UITableView *)tableView cellInit:(void (^)(id))block
++ (id)cellWithSize:(CGSize)size style:(UITableViewCellStyle)style forTableView:(UITableView *)tableView cellInit:(void (^)(id))block
 {
-	NSString* reuseIdentifier = _str(@"%@_%.0f", NSStringFromClass([self class]), size.height);
-	id cell					  = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+	NSString* ident	= _str(@"%@_%.0f", NSStringFromClass([self class]), size.height);
+	id cell			= [tableView dequeueReusableCellWithIdentifier:ident];
 	
 	if (!cell) {
 		
-		cell = [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier size:size];
+		cell = [[self alloc] initWithStyle:style reuseIdentifier:ident size:size];
 		
 		if (block)
 			block(cell);

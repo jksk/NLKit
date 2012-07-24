@@ -51,52 +51,52 @@ indicatorLength;
 
 - (void)setAnimating:(BOOL)animating
 {
-	[_cast(NLActivityIndicatorView, [self customView]) setAnimating:animating];
+	[(NLActivityIndicatorView *)[self customView] setAnimating:animating];
 }
 
 - (BOOL)isAnimating
 {
-	return [_cast(NLActivityIndicatorView, [self customView]) isAnimating];
+	return [(NLActivityIndicatorView *)[self customView] isAnimating];
 }
 
 - (void)setIndicatorColor:(UIColor *)indicatorColor
 {
-	[_cast(NLActivityIndicatorView, [self customView]) setIndicatorColor:indicatorColor];
+	[(NLActivityIndicatorView *)[self customView] setIndicatorColor:indicatorColor];
 }
 
 - (UIColor *)indicatorColor
 {
-	return [_cast(NLActivityIndicatorView, [self customView]) indicatorColor];
+	return [(NLActivityIndicatorView *)[self customView] indicatorColor];
 }
 
 - (void)setIndicatorWidth:(CGFloat)indicatorWidth
 {
-	[_cast(NLActivityIndicatorView, [self customView]) setIndicatorWidth:indicatorWidth];
+	[(NLActivityIndicatorView *)[self customView] setIndicatorWidth:indicatorWidth];
 }
 
 - (CGFloat)indicatorWidth
 {
-	return [_cast(NLActivityIndicatorView, [self customView]) indicatorWidth];
+	return [(NLActivityIndicatorView *)[self customView] indicatorWidth];
 }
 
 - (void)setIndicatorStep:(CGFloat)indicatorStep
 {
-	[_cast(NLActivityIndicatorView, [self customView]) setIndicatorStep:indicatorStep];
+	[(NLActivityIndicatorView *)[self customView] setIndicatorStep:indicatorStep];
 }
 
 - (CGFloat)indicatorStep
 {
-	return [_cast(NLActivityIndicatorView, [self customView]) indicatorStep];
+	return [(NLActivityIndicatorView *)[self customView] indicatorStep];
 }
 
 - (void)setIndicatorLength:(CGFloat)indicatorLength
 {
-	[_cast(NLActivityIndicatorView, [self customView]) setIndicatorLength:indicatorLength];
+	[(NLActivityIndicatorView *)[self customView] setIndicatorLength:indicatorLength];
 }
 
 - (CGFloat)indicatorLength
 {
-	return [_cast(NLActivityIndicatorView, [self customView]) indicatorLength];
+	return [(NLActivityIndicatorView *)[self customView] indicatorLength];
 }
 
 @end

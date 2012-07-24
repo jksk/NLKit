@@ -45,6 +45,7 @@
 #import "UITableView+NLKit.h"
 #import "UIView+NLKit.h"
 #import "UIView+NLKit_Animations.h"
+#import "UIViewController+NLKit.h"
 #import "UIWindow+NLKit.h"
 
 // View Controllers
