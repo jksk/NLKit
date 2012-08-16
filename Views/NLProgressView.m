@@ -545,7 +545,7 @@ detailText;
 	
 	[textLabel_ setBackgroundColor:[UIColor clearColor]];
 	[textLabel_ setTextColor:[UIColor whiteColor]];
-	[textLabel_ setTextAlignment:NSTextAlignmentCenter];
+	[textLabel_ setTextAlignment:UITextAlignmentCenter];
 	[textLabel_ setFont:[UIFont boldSystemFontOfSize:18.f]];
 	[textLabel_ setNumberOfLines:0];
 	
@@ -560,7 +560,7 @@ detailText;
 	
 	[detailTextLabel_ setBackgroundColor:[UIColor clearColor]];
 	[detailTextLabel_ setTextColor:[UIColor whiteColor]];
-	[detailTextLabel_ setTextAlignment:NSTextAlignmentCenter];
+	[detailTextLabel_ setTextAlignment:UITextAlignmentCenter];
 	[detailTextLabel_ setFont:[UIFont boldSystemFontOfSize:12.f]];
 	[detailTextLabel_ setNumberOfLines:0];
 	

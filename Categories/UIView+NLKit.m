@@ -29,7 +29,8 @@
 
 - (UIImage *)snapshot
 {
-	UIGraphicsBeginImageContext([self bounds].size);
+	UIGraphicsBeginImageContextWithOptions([self bounds].size, NO, 0.f);
+//	UIGraphicsBeginImageContext([self bounds].size);
 	
 	[[self layer] renderInContext:UIGraphicsGetCurrentContext()];
 	UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
