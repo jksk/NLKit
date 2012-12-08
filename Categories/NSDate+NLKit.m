@@ -28,22 +28,20 @@
 
 - (NSComparisonResult)compareIgnoringTime:(NSDate *)other
 {
-	NSUInteger flags	 = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
-	NSCalendar* calendar = [NSCalendar currentCalendar];
-	
-	NSDate* selfWithoutTime  = [calendar dateFromComponents:[calendar components:flags fromDate:self]];
-	NSDate* otherWithoutTime = [calendar dateFromComponents:[calendar components:flags fromDate:other]];
+	NSUInteger flags			= NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
+	NSCalendar* calendar		= [NSCalendar currentCalendar];
+	NSDate* selfWithoutTime		= [calendar dateFromComponents:[calendar components:flags fromDate:self]];
+	NSDate* otherWithoutTime	= [calendar dateFromComponents:[calendar components:flags fromDate:other]];
 	
 	return [selfWithoutTime compare:otherWithoutTime];
 }
 
 - (NSComparisonResult)compareIgnoringDate:(NSDate *)other
 {
-	NSUInteger flags	 = NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit;
-	NSCalendar* calendar = [NSCalendar currentCalendar];
-	
-	NSDate* selfWithoutDate  = [calendar dateFromComponents:[calendar components:flags fromDate:self]];
-	NSDate* otherWithoutDate = [calendar dateFromComponents:[calendar components:flags fromDate:other]];
+	NSUInteger flags			= NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit;
+	NSCalendar* calendar		= [NSCalendar currentCalendar];
+	NSDate* selfWithoutDate		= [calendar dateFromComponents:[calendar components:flags fromDate:self]];
+	NSDate* otherWithoutDate	= [calendar dateFromComponents:[calendar components:flags fromDate:other]];
 	
 	return [selfWithoutDate compare:otherWithoutDate];
 }

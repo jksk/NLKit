@@ -29,10 +29,7 @@
 - (void)reloadDataKeepSelection;
 - (void)reloadDataWithRowAnimation:(UITableViewRowAnimation)animation;
 
-- (void)selectRowsAtIndexPaths:(NSArray *)indexPaths
-					  animated:(BOOL)animated
-				scrollPosition:(UITableViewScrollPosition)scrollPosition;
-
+- (void)selectRowsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
 - (void)selectAllRowsAnimated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
 
 - (CGSize)cellSize;

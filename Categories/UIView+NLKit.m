@@ -30,7 +30,6 @@
 - (UIImage *)snapshot
 {
 	UIGraphicsBeginImageContextWithOptions([self bounds].size, NO, 0.f);
-//	UIGraphicsBeginImageContext([self bounds].size);
 	
 	[[self layer] renderInContext:UIGraphicsGetCurrentContext()];
 	UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
@@ -43,10 +42,7 @@
 - (void)roundCorners:(UIRectCorner)corners withRadius:(CGFloat)radius
 {
 	CAShapeLayer* mask = [CAShapeLayer layer];
-	UIBezierPath* path = [UIBezierPath
-						  bezierPathWithRoundedRect:[self bounds]
-						  byRoundingCorners:corners
-						  cornerRadii:CGSizeMake(radius, radius)];
+	UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:[self bounds] byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
 	
 	[mask setPath:[path CGPath]];
 	[[self layer] setMask:mask];
@@ -60,8 +56,9 @@
 			return view;
 		
 		UIView* subview = [view subviewWithClassname:classname];
+		
 		if (subview)
-		return subview;
+			return subview;
 	}
 	
 	return nil;

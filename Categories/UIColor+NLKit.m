@@ -43,10 +43,7 @@
 
 + (UIColor *)randomColor
 {
-	return [UIColor colorWithRed:NLRandom.rfloat(0.f, 1.f)
-						   green:NLRandom.rfloat(0.f, 1.f)
-							blue:NLRandom.rfloat(0.f, 1.f)
-						   alpha:1.f];
+	return [UIColor colorWithRed:NLRandom.rfloat(0.f, 1.f) green:NLRandom.rfloat(0.f, 1.f) blue:NLRandom.rfloat(0.f, 1.f) alpha:1.f];
 }
 
 - (UIColor *)complementaryColor
@@ -62,6 +59,7 @@
 - (CGFloat)red
 {
 	CGFloat red;
+	
 	if ([self getRed:&red green:NULL blue:NULL alpha:NULL])
 		return red;
 	
@@ -71,6 +69,7 @@
 - (CGFloat)green
 {
 	CGFloat green;
+	
 	if ([self getRed:NULL green:&green blue:NULL alpha:NULL])
 		return green;
 	
@@ -80,6 +79,7 @@
 - (CGFloat)blue
 {
 	CGFloat blue;
+	
 	if ([self getRed:NULL green:NULL blue:&blue alpha:NULL])
 		return blue;
 	
@@ -89,6 +89,7 @@
 - (CGFloat)hue
 {
 	CGFloat hue;
+	
 	if ([self getHue:&hue saturation:NULL brightness:NULL alpha:NULL])
 		return hue;
 	
@@ -98,6 +99,7 @@
 - (CGFloat)saturation
 {
 	CGFloat sat;
+	
 	if ([self getHue:NULL saturation:&sat brightness:NULL alpha:NULL])
 		return sat;
 	
@@ -107,6 +109,7 @@
 - (CGFloat)brightness
 {
 	CGFloat brt;
+	
 	if ([self getHue:NULL saturation:NULL brightness:&brt alpha:NULL])
 		return brt;
 	
@@ -116,6 +119,7 @@
 - (CGFloat)white
 {
 	CGFloat white;
+	
 	if ([self getWhite:&white alpha:NULL])
 		return white;
 	

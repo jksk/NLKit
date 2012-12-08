@@ -44,14 +44,6 @@
 	return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-	[super didReceiveMemoryWarning];
-	
-	if (![self isViewLoaded])
-		[self setTableView:nil];
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad

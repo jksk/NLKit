@@ -32,10 +32,9 @@ static const void* frameKey = "KeyboardShowFrameKey";
 
 - (CGRect)defaultViewFrame
 {
-	CGRect frame = [[UIScreen mainScreen] bounds];
-	
-	frame.size.height -= [[UIApplication sharedApplication] isStatusBarHidden] ? 0.f : 20.f;
-	frame.size.height -= CGRectGetHeight([[[self tabBarController] tabBar] frame]);
+	CGRect frame		= [[UIScreen mainScreen] bounds];
+	frame.size.height  -= [[UIApplication sharedApplication] isStatusBarHidden] ? 0.f : 20.f;
+	frame.size.height  -= CGRectGetHeight([[[self tabBarController] tabBar] frame]);
 	
 	if ([self navigationController] && ![[self navigationController] isNavigationBarHidden])
 		frame.size.height -= CGRectGetHeight([[[self navigationController] navigationBar] frame]);
@@ -53,9 +52,7 @@ static const void* frameKey = "KeyboardShowFrameKey";
 	
 	objc_setAssociatedObject(self, frameKey, frameValue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 	
-	[UIView
-	 animateWithDuration:KEYBOARD_ANIMATION_DURATION
-	 animations:^{
+	[UIView animateWithDuration:KEYBOARD_ANIMATION_DURATION animations:^{
 		 
 		 [[self view] setFrame:frame];
 	 }];
@@ -64,11 +61,10 @@ static const void* frameKey = "KeyboardShowFrameKey";
 - (void)keyboardWillHide_:(NSNotification *)note
 {
 	NSValue* frameValue = objc_getAssociatedObject(self, frameKey);
+	
 	objc_setAssociatedObject(self, frameKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 	
-	[UIView
-	 animateWithDuration:KEYBOARD_ANIMATION_DURATION
-	 animations:^{
+	[UIView animateWithDuration:KEYBOARD_ANIMATION_DURATION animations:^{
 		 
 		 [[self view] setFrame:[frameValue CGRectValue]];
 	 }];
@@ -79,6 +75,7 @@ static const void* frameKey = "KeyboardShowFrameKey";
 - (void)addKeyboardObservers
 {
 	NSNotificationCenter* nf = [NSNotificationCenter defaultCenter];
+	
 	[nf addObserver:self selector:@selector(keyboardWillShow_:) name:UIKeyboardWillShowNotification object:nil];
 	[nf addObserver:self selector:@selector(keyboardWillHide_:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -86,6 +83,7 @@ static const void* frameKey = "KeyboardShowFrameKey";
 - (void)removeKeyboardObservers
 {
 	NSNotificationCenter* nf = [NSNotificationCenter defaultCenter];
+	
 	[nf removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 	[nf removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }

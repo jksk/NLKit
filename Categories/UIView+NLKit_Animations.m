@@ -31,14 +31,7 @@
 - (void)performAnimatedBlock:(void (^)(void))block duration:(CGFloat)duration
 {
 	if (duration > 0.f)
-		[UIView
-		 animateWithDuration:duration
-		 delay:0.f
-		 options:(UIViewAnimationOptionAllowAnimatedContent|
-				  UIViewAnimationOptionAllowUserInteraction|
-				  UIViewAnimationOptionBeginFromCurrentState)
-		 animations:block
-		 completion:NULL];
+		[UIView animateWithDuration:duration delay:0.f options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionBeginFromCurrentState animations:block completion:NULL];
 	else
 		block();
 }
@@ -50,31 +43,33 @@
 
 - (void)rotateToAngle:(CGFloat)angle animationDuration:(CGFloat)duration
 {
-	[self performAnimatedBlock:^{ [self setTransform:CGAffineTransformMakeRotation(_radians(angle))]; }
-					  duration:duration];
+	[self performAnimatedBlock:^{
+		
+		[self setTransform:CGAffineTransformMakeRotation(_radians(angle))];
+	
+	} duration:duration];
 }
 
 - (void)moveToPoint:(CGPoint)center animationDuration:(CGFloat)duration
 {
-	[self performAnimatedBlock:^{ [self setCenter:center]; } duration:duration];
+	[self performAnimatedBlock:^{
+		
+		[self setCenter:center];
+	
+	} duration:duration];
 }
 
 - (void)spinWithVelocity:(CGFloat)velocity forInterval:(NSTimeInterval)interval
 {
-	CALayer* layer = [self layer];
-	
-	CATransform3D originalTransform = [layer transform];
-	CATransform3D spinTransform = CATransform3DMakeRotation(_radians(180.f), 0.f, 0.f, 1.f);
-	
-	CAKeyframeAnimation* animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+	CALayer* layer					= [self layer];
+	CATransform3D originalTransform	= [layer transform];
+	CATransform3D spinTransform		= CATransform3DMakeRotation(_radians(180.f), 0.f, 0.f, 1.f);
+	CAKeyframeAnimation* animation	= [CAKeyframeAnimation animationWithKeyPath:@"transform"];
 	
 	[animation setDuration:velocity];
 	[animation setCalculationMode:@"cubicPaced"];
 	[animation setRepeatCount:interval];
-	[animation setValues:[NSArray arrayWithObjects:
-						  [NSValue valueWithCATransform3D:spinTransform],
-						  [NSValue valueWithCATransform3D:originalTransform],
-						  nil]];
+	[animation setValues:@[[NSValue valueWithCATransform3D:spinTransform],[NSValue valueWithCATransform3D:originalTransform]]];
 	
 	[layer addAnimation:animation forKey:@"spinAnimation"];
 }

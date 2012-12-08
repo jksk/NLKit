@@ -78,10 +78,7 @@
 	[[self tableView] endUpdates];
 }
 
-- (void)controller:(NSFetchedResultsController *)controller
-  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
-		   atIndex:(NSUInteger)sectionIndex
-	 forChangeType:(NSFetchedResultsChangeType)type
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
 	switch (type) {
 			
@@ -97,11 +94,7 @@
 	}
 }
 
-- (void)controller:(NSFetchedResultsController *)controller
-   didChangeObject:(id)anObject
-	   atIndexPath:(NSIndexPath *)indexPath
-	 forChangeType:(NSFetchedResultsChangeType)type
-	  newIndexPath:(NSIndexPath *)newIndexPath
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
 {
 	switch (type) {
 		case NSFetchedResultsChangeInsert:
@@ -119,6 +112,7 @@
 		case NSFetchedResultsChangeUpdate: {
 			
 			NLTableViewCell* cell = (NLTableViewCell *)[[self tableView] cellForRowAtIndexPath:indexPath];
+			
 			if (cell)
 				[self configureCell:cell atIndexPath:indexPath];
 			

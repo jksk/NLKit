@@ -26,12 +26,6 @@
 
 @interface NSNumber (NLKit)
 
-+ (NSNumber *)zero;
-+ (NSNumber *)one;
-
-+ (NSNumber *)yes;
-+ (NSNumber *)no;
-
 + (NSNumber *)randomZeroToOne;
 
 @end

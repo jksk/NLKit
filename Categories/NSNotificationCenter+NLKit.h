@@ -36,10 +36,7 @@
 + (void)removeObserver:(id)observer name:(NSString *)aName object:(id)anObject;
 
 #if NS_BLOCKS_AVAILABLE
-+ (id)addObserverForName:(NSString *)name
-				  object:(id)obj
-				   queue:(NSOperationQueue *)queue
-			  usingBlock:(void (^)(NSNotification *note))block;
++ (id)addObserverForName:(NSString *)name object:(id)obj queue:(NSOperationQueue *)queue usingBlock:(void (^)(NSNotification *note))block;
 #endif
 
 @end

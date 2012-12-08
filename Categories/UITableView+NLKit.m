@@ -41,13 +41,10 @@
 
 - (void)reloadDataWithRowAnimation:(UITableViewRowAnimation)animation
 {
-	[self reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self numberOfSections])]
-		withRowAnimation:animation];
+	[self reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self numberOfSections])] withRowAnimation:animation];
 }
 
-- (void)selectRowsAtIndexPaths:(NSArray *)indexPaths
-					  animated:(BOOL)animated
-				scrollPosition:(UITableViewScrollPosition)scrollPosition
+- (void)selectRowsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition
 {
 	for (NSIndexPath* indexPath in indexPaths)
 		[self selectRowAtIndexPath:indexPath animated:animated scrollPosition:scrollPosition];
@@ -57,15 +54,12 @@
 {
 	for (NSUInteger i = 0; i < [self numberOfSections]; i++)
 		for (NSUInteger j = 0; j < [self numberOfRowsInSection:i]; j++)
-			[self selectRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:i]
-							  animated:animated
-						scrollPosition:scrollPosition];
+			[self selectRowAtIndexPath:[NSIndexPath indexPathForRow:j inSection:i] animated:animated scrollPosition:scrollPosition];
 }
 
 - (CGSize)cellSize
 {
-	CGFloat modifier = [self style] == UITableViewStylePlain ? 0.f : 20.f;
-	return (CGSize){CGRectGetWidth([self bounds]) - modifier, [self rowHeight]};
+	return [self cellSizeForIndexPath:nil];
 }
 
 - (CGSize)cellSizeForIndexPath:(NSIndexPath *)indexPath
@@ -73,12 +67,12 @@
 	CGFloat modifier = [self style] == UITableViewStylePlain ? 0.f : 20.f;
 	CGFloat height;
 	
-	if ([[self delegate] respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
+	if (indexPath && [[self delegate] respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
 		height = [[self delegate] tableView:self heightForRowAtIndexPath:indexPath];
 	else
 		height = [self rowHeight];
 	
-	return (CGSize){CGRectGetWidth([self bounds]) - modifier, height};
+	return CGSizeMake(CGRectGetWidth([self bounds]) - modifier, height);
 }
 
 @end

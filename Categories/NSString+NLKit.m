@@ -34,13 +34,15 @@
 
 - (NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)set
 {
-	NSUInteger length = [self length];
-	NSMutableString* string = [NSMutableString stringWithCapacity:length];
+	NSUInteger length		= [self length];
+	NSMutableString* string	= [NSMutableString stringWithCapacity:length];
 	
 	for (int i = 0; i < length; i++) {
 		
 		unichar c = [self characterAtIndex:i];
-		if (![set characterIsMember:c]) [string appendFormat:@"%C", c];
+		
+		if (![set characterIsMember:c])
+			[string appendFormat:@"%C", c];
 	}
 	
 	return [NSString stringWithString:string];

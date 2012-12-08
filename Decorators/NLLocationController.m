@@ -125,8 +125,7 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 {
 	CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
 	
-	return ([CLLocationManager locationServicesEnabled] &&
-			(status == kCLAuthorizationStatusAuthorized || status == kCLAuthorizationStatusNotDetermined));
+	return ([CLLocationManager locationServicesEnabled] && (status == kCLAuthorizationStatusAuthorized || status == kCLAuthorizationStatusNotDetermined));
 }
 
 #pragma mark - Property Accessors

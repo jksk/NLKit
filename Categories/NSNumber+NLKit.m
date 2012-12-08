@@ -27,26 +27,6 @@
 
 @implementation NSNumber (NLKit)
 
-+ (NSNumber *)zero
-{
-	return [NSNumber numberWithInt:0];
-}
-
-+ (NSNumber *)one
-{
-	return [NSNumber numberWithInt:1];
-}
-
-+ (NSNumber *)yes
-{
-	return [NSNumber numberWithBool:YES];
-}
-
-+ (NSNumber *)no
-{
-	return [NSNumber numberWithBool:NO];
-}
-
 + (NSNumber *)randomZeroToOne
 {
 	return [NSNumber numberWithDouble:NLRandom.rdouble(0.0, 1.0)];

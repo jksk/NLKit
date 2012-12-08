@@ -61,6 +61,7 @@
 #import "NLDotActivityIndicatorView.h"
 #import "NLProgressView.h"
 #import "NLBarActivityIndicatorView.h"
+#import "NLAutoCompleteTextField.h"
 
 // Decorators
 #import "NLKeychain.h"

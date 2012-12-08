@@ -29,7 +29,11 @@
 + (UIWindow *)mainWindow
 {
 	UIWindow* window = [[UIApplication sharedApplication] keyWindow];
-	return window ? window : [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+	
+	if (window)
+		return window;
+	
+	return [[[UIApplication sharedApplication] windows] objectAtIndex:0];
 }
 
 + (UIView *)keyboardView

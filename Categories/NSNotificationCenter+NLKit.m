@@ -57,10 +57,7 @@
 }
 
 #if NS_BLOCKS_AVAILABLE
-+ (id)addObserverForName:(NSString *)name
-				  object:(id)obj
-				   queue:(NSOperationQueue *)queue
-			  usingBlock:(void (^)(NSNotification *note))block
++ (id)addObserverForName:(NSString *)name object:(id)obj queue:(NSOperationQueue *)queue usingBlock:(void (^)(NSNotification *note))block
 {
 	return [[NSNotificationCenter defaultCenter] addObserverForName:name object:obj queue:queue usingBlock:block];
 }

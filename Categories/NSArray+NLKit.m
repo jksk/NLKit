@@ -64,7 +64,7 @@
 			[array addObject:mapped];
 	}
 	
-	return [NSArray	 arrayWithArray:array];
+	return [NSArray	arrayWithArray:array];
 }
 
 @end
