@@ -92,7 +92,7 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 
 #pragma mark - CLLocationManagerDelegate
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
 	if (![self isActive])
 		return;
@@ -102,6 +102,11 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 	
 	if (diff < maximumUpdateFrequency_)
 		return;
+	
+	if (![locations count])
+		return;
+	
+	CLLocation* newLocation = [locations lastObject];
 	
 	// too erronous, skip
 	if ([newLocation horizontalAccuracy] > minimumAccuracy_)
