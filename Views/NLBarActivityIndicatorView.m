@@ -42,7 +42,9 @@ indicatorLength;
 	CGRect frame = {0.f, 0.f, 20.f, 20.f};
 	NLActivityIndicatorView* indicator = [[NLActivityIndicatorView alloc] initWithFrame:frame];
 	
-	if (!(self = [super initWithCustomView:indicator])) return nil;
+	if (self = [super initWithCustomView:indicator]) {
+		
+	}
 	
 	return self;
 }

@@ -40,12 +40,13 @@
 
 - (id)initWithFrame:(CGRect)frame isHighlighted:(BOOL)highlighted
 {
-	if (!(self = [super initWithFrame:frame])) return nil;
-	
-	[self setContentMode:UIViewContentModeRedraw];
-	[self setOpaque:YES];
-	
-	highlighted_ = highlighted;
+	if (self = [super initWithFrame:frame]) {
+		
+		[self setContentMode:UIViewContentModeRedraw];
+		[self setOpaque:YES];
+		
+		highlighted_ = highlighted;
+	}
 	
 	return self;
 }
@@ -70,18 +71,15 @@
 #pragma mark -
 @implementation NLFastDrawTableViewCell
 
-@synthesize
-fastContentView			= contentView_,
-fastSelectedContentView	= selectedContentView_;
-
 #pragma mark - Lifecycle
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier size:(CGSize)size
 {
-	if (!(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier size:size])) return nil;
-	
-	[self setBackgroundView:[self fastContentView]];
-	[self setSelectedBackgroundView:[self fastSelectedContentView]];
+	if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier size:size]) {
+		
+		[self setBackgroundView:[self fastContentView]];
+		[self setSelectedBackgroundView:[self fastSelectedContentView]];
+	}
 	
 	return self;
 }
@@ -97,19 +95,19 @@ fastSelectedContentView	= selectedContentView_;
 - (void)setNeedsDisplay
 {
 	[super setNeedsDisplay];
-	[contentView_ setNeedsDisplay];
+	[_fastContentView setNeedsDisplay];
 	
 	if ([self isSelected] || [self isHighlighted])
-		[selectedContentView_ setNeedsDisplay];
+		[_fastSelectedContentView setNeedsDisplay];
 }
 
 - (void)setNeedsDisplayInRect:(CGRect)rect
 {
 	[super setNeedsDisplayInRect:rect];
-	[contentView_ setNeedsDisplayInRect:rect];
+	[_fastContentView setNeedsDisplayInRect:rect];
 	
 	if ([self isSelected] || [self isHighlighted])
-		[selectedContentView_ setNeedsDisplayInRect:rect];
+		[_fastSelectedContentView setNeedsDisplayInRect:rect];
 }
 
 - (void)layoutSubviews
@@ -132,10 +130,10 @@ fastSelectedContentView	= selectedContentView_;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
 	if (selected && ![self isSelected])
-		[selectedContentView_ setNeedsDisplay];
+		[_fastSelectedContentView setNeedsDisplay];
 	
 	if (!selected && [self isSelected])
-		[contentView_ setNeedsDisplay];
+		[_fastContentView setNeedsDisplay];
 	
 	[super setSelected:selected animated:animated];
 }
@@ -148,10 +146,10 @@ fastSelectedContentView	= selectedContentView_;
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
 	if (highlighted && ![self isHighlighted])
-		[selectedContentView_ setNeedsDisplay];
+		[_fastSelectedContentView setNeedsDisplay];
 	
 	if (!highlighted && [self isHighlighted])
-		[contentView_ setNeedsDisplay];
+		[_fastContentView setNeedsDisplay];
 	
 	[super setHighlighted:highlighted animated:animated];
 }
@@ -162,26 +160,28 @@ fastSelectedContentView	= selectedContentView_;
 	
 	CGRect bounds = [self bounds];
 	
-	[contentView_ setBounds:bounds];
-	[selectedContentView_ setBounds:bounds];
+	[_fastContentView setBounds:bounds];
+	[_fastSelectedContentView setBounds:bounds];
 }
 
 - (NLFastDrawContentView *)fastContentView
 {
-	if (contentView_) return contentView_;
+	if (_fastContentView)
+		return _fastContentView;
 	
-	contentView_ = [[NLFastDrawContentView alloc] initWithFrame:CGRectZero isHighlighted:NO];
+	_fastContentView = [[NLFastDrawContentView alloc] initWithFrame:CGRectZero isHighlighted:NO];
 	
-	return contentView_;
+	return _fastContentView;
 }
 
 - (NLFastDrawContentView *)fastSelectedContentView
 {
-	if (selectedContentView_) return selectedContentView_;
+	if (_fastSelectedContentView)
+		return _fastSelectedContentView;
 	
-	selectedContentView_ = [[NLFastDrawContentView alloc] initWithFrame:CGRectZero isHighlighted:YES];
+	_fastSelectedContentView = [[NLFastDrawContentView alloc] initWithFrame:CGRectZero isHighlighted:YES];
 	
-	return selectedContentView_;
+	return _fastSelectedContentView;
 }
 
 @end

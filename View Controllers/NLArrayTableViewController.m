@@ -24,19 +24,21 @@
 
 #import "NLArrayTableViewController.h"
 
-@implementation NLArrayTableViewController
-{
-	BOOL	nestedArrays_;
-}
+@interface NLArrayTableViewController ()
 
-@synthesize
-tableData	= tableData_;
+@property (assign, nonatomic) BOOL	nestedArrays;
+
+@end
+
+@implementation NLArrayTableViewController
 
 #pragma mark - Lifecycle
 
 - (id)initWithTableViewStyle:(UITableViewStyle)style
 {
-	if (!(self = [super initWithTableViewStyle:style])) return nil;
+	if (self = [super initWithTableViewStyle:style]) {
+		
+	}
 	
 	return self;
 }
@@ -48,13 +50,13 @@ tableData	= tableData_;
 	if (![[self tableData] count])
 		return 0;
 	
-	nestedArrays_ = [[[self tableData] objectAtIndex:0] isKindOfClass:[NSArray class]];
-	return nestedArrays_ ? [[self tableData] count] : 1;
+	_nestedArrays = [[[self tableData] objectAtIndex:0] isKindOfClass:[NSArray class]];
+	return _nestedArrays ? [[self tableData] count] : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return nestedArrays_ ? [[[self tableData] objectAtIndex:section] count] : [[self tableData] count];
+	return _nestedArrays ? [[[self tableData] objectAtIndex:section] count] : [[self tableData] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,18 +68,20 @@ tableData	= tableData_;
 
 - (void)configureCell:(NLTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-	id obj = (nestedArrays_ ?
-			  [(NSArray *)[[self tableData] objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]] :
-			  [[self tableData] objectAtIndex:[indexPath row]]);
-	
+	id object;
 	NSString* text;
 	
-	if ([obj isKindOfClass:[NSString class]])
-		text = obj;
-	else if ([obj respondsToSelector:@selector(stringValue)])
-		text = [obj stringValue];
+	if (_nestedArrays)
+		object = [[(NSArray *)[self tableData] objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
 	else
-		text = [obj description];
+		object = [[self tableData] objectAtIndex:[indexPath row]];
+	
+	if ([object isKindOfClass:[NSString class]])
+		text = object;
+	else if ([object respondsToSelector:@selector(stringValue)])
+		text = [object stringValue];
+	else
+		text = [object description];
 	
 	[[cell textLabel] setText:text];
 }

@@ -28,7 +28,8 @@
 
 - (NSDate *)dateFromISO8601String:(NSString *)string
 {
-	if (![string length]) return nil;
+	if (![string length])
+		return nil;
 	
 	if ([string hasSuffix:@"Z"])
 		string = [string stringByReplacingCharactersInRange:NSMakeRange([string length]-1, 1) withString:@"-0000"];

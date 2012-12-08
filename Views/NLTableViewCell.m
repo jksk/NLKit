@@ -39,9 +39,10 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier size:(CGSize)size
 {
-	if (!(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
-	
-	[self setFrame:(CGRect){0.f, 0.f, size}];
+	if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+		
+		[self setFrame:(CGRect){0.f, 0.f, size}];
+	}
 	
 	return self;
 }

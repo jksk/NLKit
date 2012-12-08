@@ -49,24 +49,16 @@ const struct NLLocationControllerKeysStruct NLLocationControllerKeys = {
 #pragma mark -
 @implementation NLLocationController
 
-@synthesize
-active					= active_,
-highResolution			= highResolution_,
-minimumAccuracy			= minimumAccuracy_,
-maximumUpdateFrequency	= maximumUpdateFrequency_,
-locationManager			= locationManager_,
-lastUpdate				= lastUpdate_;
-
 #pragma mark - Lifecycle
 
 - (id)init
 {
-	if (!(self = [super init]))
-		return nil;
-	
-	[self setMinimumAccuracy:1500.f];
-	[self setMaximumUpdateFrequency:15.f];
-	[self setLastUpdate:[NSDate dateWithTimeIntervalSince1970:0.f]];
+	if (self = [super init]) {
+		
+		[self setMinimumAccuracy:1500.f];
+		[self setMaximumUpdateFrequency:15.f];
+		[self setLastUpdate:[NSDate dateWithTimeIntervalSince1970:0.f]];
+	}
 	
 	return self;
 }
@@ -74,7 +66,7 @@ lastUpdate				= lastUpdate_;
 - (void)dealloc
 {
 	[self setActive:NO];
-	[locationManager_ setDelegate:nil];
+	[_locationManager setDelegate:nil];
 }
 
 static NLLocationController* NLLocationControllerSingleton_ = nil;
@@ -100,7 +92,7 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 	// not long enough since last update, skip
 	NSTimeInterval diff = [[NSDate date] timeIntervalSinceDate:[self lastUpdate]];
 	
-	if (diff < maximumUpdateFrequency_)
+	if (diff < _maximumUpdateFrequency)
 		return;
 	
 	if (![locations count])
@@ -109,7 +101,7 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 	CLLocation* newLocation = [locations lastObject];
 	
 	// too erronous, skip
-	if ([newLocation horizontalAccuracy] > minimumAccuracy_)
+	if ([newLocation horizontalAccuracy] > _minimumAccuracy)
 		return;
 	
 	[self setLastUpdate:[newLocation timestamp]];
@@ -146,18 +138,18 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 	
 	CLLocationManager* lm = [self locationManager];
 	
-	if (active && !active_) {
+	if (active && !_active) {
 		
-		if (highResolution_)
+		if (_highResolution)
 			[lm startUpdatingLocation];
 		else
 			[lm startMonitoringSignificantLocationChanges];
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:NLLocationControllerNotifications.start object:self];
 	}
-	else if (!active && active_) {
+	else if (!active && _active) {
 		
-		if (highResolution_)
+		if (_highResolution)
 			[lm stopUpdatingLocation];
 		else
 			[lm stopMonitoringSignificantLocationChanges];
@@ -165,42 +157,42 @@ static NLLocationController* NLLocationControllerSingleton_ = nil;
 		[[NSNotificationCenter defaultCenter] postNotificationName:NLLocationControllerNotifications.stop object:self];
 	}
 	
-	active_ = active;
+	_active = active;
 }
 
 - (void)setHighResolution:(BOOL)highResolution
 {
-	if (active_) {
+	if (_active) {
 		
 		CLLocationManager* lm = [self locationManager];
 		
-		if (highResolution && !highResolution_) {
+		if (highResolution && !_highResolution) {
 			
 			[lm stopMonitoringSignificantLocationChanges];
 			[lm startUpdatingLocation];
 		}
-		else if (!highResolution && highResolution_) {
+		else if (!highResolution && _highResolution) {
 			
 			[lm stopUpdatingLocation];
 			[lm startMonitoringSignificantLocationChanges];
 		}
 	}
 	
-	highResolution_ = highResolution;
+	_highResolution = highResolution;
 }
 
 - (CLLocationManager *)locationManager
 {
-	if (locationManager_)
-		return locationManager_;
+	if (_locationManager)
+		return _locationManager;
 	
-	locationManager_ = [[CLLocationManager alloc] init];
+	_locationManager = [[CLLocationManager alloc] init];
 	
-	[locationManager_ setDelegate:self];
-	[locationManager_ setDistanceFilter:0.f];
-	[locationManager_ setDesiredAccuracy:kCLLocationAccuracyBest];
+	[_locationManager setDelegate:self];
+	[_locationManager setDistanceFilter:0.f];
+	[_locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
 	
-	return locationManager_;
+	return _locationManager;
 }
 
 @end

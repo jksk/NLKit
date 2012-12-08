@@ -29,7 +29,8 @@
 - (NSString *)hexadecimalString
 {
 	const unsigned char* buffer = [self bytes];
-	if (!buffer) return nil;
+	if (!buffer)
+		return nil;
 	
 	NSUInteger len		 = [self length];
 	NSMutableString* str = [NSMutableString stringWithCapacity:len*2];

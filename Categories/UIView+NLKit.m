@@ -60,7 +60,8 @@
 			return view;
 		
 		UIView* subview = [view subviewWithClassname:classname];
-		if (subview) return subview;
+		if (subview)
+		return subview;
 	}
 	
 	return nil;

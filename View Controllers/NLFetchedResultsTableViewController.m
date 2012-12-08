@@ -27,17 +27,14 @@
 
 @implementation NLFetchedResultsTableViewController
 
-@synthesize
-fetchedResultsController	= fetchedResultsController_,
-tableViewUpdateAnimation	= tableViewUpdateAnimation_;
-
 #pragma mark - Lifecycle
 
 - (id)initWithTableViewStyle:(UITableViewStyle)style
 {
-	if (!(self = [super initWithTableViewStyle:style])) return nil;
-	
-	[self setTableViewUpdateAnimation:UITableViewRowAnimationNone];
+	if (self = [super initWithTableViewStyle:style]) {
+		
+		[self setTableViewUpdateAnimation:UITableViewRowAnimationNone];
+	}
 	
 	return self;
 }
@@ -47,7 +44,7 @@ tableViewUpdateAnimation	= tableViewUpdateAnimation_;
 - (void)viewWillAppear:(BOOL)animated
 {
 	NSError* error = nil;
-	if (fetchedResultsController_ && ![fetchedResultsController_ performFetch:&error]) {
+	if (_fetchedResultsController && ![_fetchedResultsController performFetch:&error]) {
 #ifdef DEBUG
 		[NSException raise:@"NSFetchedResultsController fetch error" format:@"%@", error];
 #endif
@@ -65,7 +62,7 @@ tableViewUpdateAnimation	= tableViewUpdateAnimation_;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	id<NSFetchedResultsSectionInfo> info = [[fetchedResultsController_ sections] objectAtIndex:section];
+	id<NSFetchedResultsSectionInfo> info = [[_fetchedResultsController sections] objectAtIndex:section];
 	return [info numberOfObjects];
 }
 
@@ -90,12 +87,12 @@ tableViewUpdateAnimation	= tableViewUpdateAnimation_;
 			
 		case NSFetchedResultsChangeInsert:
 			[[self tableView] insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-							withRowAnimation:tableViewUpdateAnimation_];
+							withRowAnimation:_tableViewUpdateAnimation];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
 			[[self tableView] deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-							withRowAnimation:tableViewUpdateAnimation_];
+							withRowAnimation:_tableViewUpdateAnimation];
 			break;
 	}
 }
@@ -108,11 +105,11 @@ tableViewUpdateAnimation	= tableViewUpdateAnimation_;
 {
 	switch (type) {
 		case NSFetchedResultsChangeInsert:
-			[[self tableView] insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:tableViewUpdateAnimation_];
+			[[self tableView] insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:_tableViewUpdateAnimation];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
-			[[self tableView] deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:tableViewUpdateAnimation_];
+			[[self tableView] deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:_tableViewUpdateAnimation];
 			break;
 			
 		case NSFetchedResultsChangeMove:

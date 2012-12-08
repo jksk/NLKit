@@ -30,9 +30,10 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-	if (!(self = [super initWithFrame:frame])) return nil;
-	
-	[self setIndicatorWidth:5.f];
+	if (self = [super initWithFrame:frame]) {
+		
+		[self setIndicatorWidth:5.f];
+	}
 	
 	return self;
 }

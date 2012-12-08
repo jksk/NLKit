@@ -25,17 +25,15 @@
 #import "NLViewController.h"
 #import "NLMacros.h"
 
-
 @implementation NLViewController
-
-@synthesize
-adjustViewWhenKeyboardDisplayed	= adjustViewWhenKeyboardDisplayed_;
 
 #pragma mark - Lifecycle
 
 - (id)init
 {
-	if (!(self = [super init])) return nil;
+	if (self = [super init]) {
+		
+	}
 	
 	return self;
 }
@@ -67,7 +65,7 @@ adjustViewWhenKeyboardDisplayed	= adjustViewWhenKeyboardDisplayed_;
 {
 	[super viewDidLoad];
 	
-	if (adjustViewWhenKeyboardDisplayed_)
+	if (_adjustViewWhenKeyboardDisplayed)
 		[self addKeyboardObservers];
 }
 
@@ -85,7 +83,7 @@ adjustViewWhenKeyboardDisplayed	= adjustViewWhenKeyboardDisplayed_;
 
 - (void)setAdjustViewWhenKeyboardDisplayed:(BOOL)adjustViewWhenKeyboardDisplayed
 {
-	adjustViewWhenKeyboardDisplayed_ = adjustViewWhenKeyboardDisplayed;
+	_adjustViewWhenKeyboardDisplayed = adjustViewWhenKeyboardDisplayed;
 	
 	if (adjustViewWhenKeyboardDisplayed && [self isViewLoaded])
 		[self addKeyboardObservers];

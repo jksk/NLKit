@@ -24,21 +24,22 @@
 
 #import "NLTableViewController.h"
 
-@implementation NLTableViewController
-{
-	UITableViewStyle	tableViewStyle_;
-}
+@interface NLTableViewController ()
 
-@synthesize
-tableView	= tableView_;
+@property (assign, nonatomic) UITableViewStyle	tableViewStyle;
+
+@end
+
+@implementation NLTableViewController
 
 #pragma mark - Lifecycle
 
 - (id)initWithTableViewStyle:(UITableViewStyle)style
 {
-	if (!(self = [super init])) return nil;
-	
-	tableViewStyle_ = style;
+	if (self = [super init]) {
+		
+		_tableViewStyle = style;
+	}
 	
 	return self;
 }
@@ -64,7 +65,7 @@ tableView	= tableView_;
 {
 	[super viewWillAppear:animated];
 	
-	[tableView_ reloadData];
+	[_tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
@@ -101,15 +102,16 @@ tableView	= tableView_;
 
 - (UITableView *)tableView
 {
-	if (tableView_) return tableView_;
+	if (_tableView)
+		return _tableView;
 	
-	tableView_ = [[UITableView alloc] initWithFrame:[[self view] bounds] style:tableViewStyle_];
+	_tableView = [[UITableView alloc] initWithFrame:[[self view] bounds] style:_tableViewStyle];
 	
-	[tableView_ setDelegate:self];
-	[tableView_ setDataSource:self];
-	[tableView_ setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+	[_tableView setDelegate:self];
+	[_tableView setDataSource:self];
+	[_tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 	
-	return tableView_;
+	return _tableView;
 }
 
 @end

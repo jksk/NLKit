@@ -38,9 +38,11 @@
 
 - (id)init
 {
-	if (!(self = [super initWithFrame:CGRectZero])) return nil;
+	if (self = [super initWithFrame:CGRectZero]) {
+		
+		[self setBackgroundColor:[UIColor clearColor]];
+	}
 	
-	[self setBackgroundColor:[UIColor clearColor]];
 	return self;
 }
 
@@ -147,14 +149,15 @@
 
 - (id)init
 {
-	if (!(self = [super init])) return nil;
-	
-	CALayer* layer = [self layer];
-	
-	[layer setCornerRadius:4.f];
-	[layer setMasksToBounds:YES];
-	[layer setBorderColor:[[UIColor whiteColor] CGColor]];
-	[layer setBorderWidth:3.f];
+	if (self = [super init]) {
+		
+		CALayer* layer = [self layer];
+		
+		[layer setCornerRadius:4.f];
+		[layer setMasksToBounds:YES];
+		[layer setBorderColor:[[UIColor whiteColor] CGColor]];
+		[layer setBorderWidth:3.f];
+	}
 	
 	return self;
 }
@@ -196,18 +199,6 @@
 #pragma mark -
 @implementation NLProgressView
 
-@synthesize
-delegate			= delegate_,
-visible				= visible_,
-animationDuration	= animationDuration_,
-hideDelay			= hideDelay_,
-progress			= progress_,
-type				= type_,
-textLabel			= textLabel_,
-detailTextLabel		= detailTextLabel_,
-activityIndicator	= activityIndicator_,
-typeView			= typeView_;
-
 @dynamic
 text,
 detailText;
@@ -216,27 +207,22 @@ detailText;
 
 - (id)init
 {
-	if (!(self = [super initWithFrame:CGRectZero])) return nil;
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(orientationDidChange:)
-												 name:UIDeviceOrientationDidChangeNotification
-											   object:nil];
-	
-	[self setAutoresizingMask:(UIViewAutoresizingFlexibleTopMargin|
-							   UIViewAutoresizingFlexibleBottomMargin|
-							   UIViewAutoresizingFlexibleLeftMargin|
-							   UIViewAutoresizingFlexibleRightMargin)];
-	
-	[self addSubview:[self textLabel]];
-	[self addSubview:[self detailTextLabel]];
-	
-	[self setAnimationDuration:0.3f];
-	[self setHideDelay:1.f];
-	[self setType:NLProgressViewTypeOngoing];
-	[self setAlpha:0.75f];
-	
-	[[self layer] setCornerRadius:10.f];
+	if (self = [super initWithFrame:CGRectZero]) {
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+		
+		[self setAutoresizingMask:(UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin)];
+		
+		[self addSubview:[self textLabel]];
+		[self addSubview:[self detailTextLabel]];
+		
+		[self setAnimationDuration:0.3f];
+		[self setHideDelay:1.f];
+		[self setType:NLProgressViewTypeOngoing];
+		[self setAlpha:0.75f];
+		
+		[[self layer] setCornerRadius:10.f];
+	}
 	
 	return self;
 }
@@ -271,7 +257,8 @@ detailText;
 
 - (void)orientationDidChange:(NSNotification *)note
 {
-	if (![self superview]) return;
+	if (![self superview])
+		return;
 	
 	UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
 	
@@ -292,9 +279,9 @@ detailText;
 			break;
 	}
 	
-	if (animationDuration_ > 0.f)
+	if (_animationDuration > 0.f)
 		[UIView
-		 animateWithDuration:animationDuration_
+		 animateWithDuration:_animationDuration
 		 delay:0.f
 		 options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState
 		 animations:^{ [self setTransform:CGAffineTransformMakeRotation(_radians(degrees))]; }
@@ -318,8 +305,8 @@ detailText;
 - (void)setNeedsDisplay
 {
 	[super				setNeedsDisplay];
-	[typeView_			setNeedsDisplay];
-	[activityIndicator_ setNeedsDisplay];
+	[_typeView			setNeedsDisplay];
+	[_activityIndicator setNeedsDisplay];
 }
 
 #pragma mark - Helpers
@@ -337,13 +324,13 @@ detailText;
 	CGFloat detailTextHeight			 = 0.f;
 	
 	// textlabel height
-	NSString* text = [textLabel_ text];
+	NSString* text = [_textLabel text];
 	
 	if ([text length])
 		textHeight = ((([text length] / kTextLineLength) * kTextLineHeight) + kTextLineHeight);
 	
 	// detailtextlabel height
-	NSString* detailText = [detailTextLabel_ text];
+	NSString* detailText = [_detailTextLabel text];
 	
 	if ([detailText length])
 		detailTextHeight = ((([detailText length] / kDetailTextLineLength) * kDetailTextLineHeight) +
@@ -358,26 +345,26 @@ detailText;
 	CGFloat typeY = (textHeight ? kPadding : 0.f) + textHeight + kPadding;
 	CGRect typeFrame = CGRectMake((size.width - kTypeHeight)/2, typeY, kTypeHeight, kTypeHeight);
 	
-	switch (type_) {
+	switch (_type) {
 			
 		case NLProgressViewTypeOngoing:
-			[activityIndicator_ setFrame:typeFrame];
+			[_activityIndicator setFrame:typeFrame];
 			break;
 			
 		case NLProgressViewTypeSuccess:
 		case NLProgressViewTypeFailure:
 		case NLProgressViewTypePie:
-			[typeView_ setFrame:typeFrame];
+			[_typeView setFrame:typeFrame];
 			break;
 			
 		case NLProgressViewTypeBar:
-			[typeView_ setFrame:CGRectMake(kPadding*2, typeY+5.f, size.width - kPadding*4, kTypeHeight-10.f)];
+			[_typeView setFrame:CGRectMake(kPadding*2, typeY+5.f, size.width - kPadding*4, kTypeHeight-10.f)];
 			break;
 	}
 	
 	// set frames
-	[textLabel_		  setFrame:CGRectMake(kPadding, kPadding, size.width - kPadding*2, textHeight)];
-	[detailTextLabel_ setFrame:CGRectMake(kPadding, (size.height - detailTextHeight - kPadding),
+	[_textLabel		  setFrame:CGRectMake(kPadding, kPadding, size.width - kPadding*2, textHeight)];
+	[_detailTextLabel setFrame:CGRectMake(kPadding, (size.height - detailTextHeight - kPadding),
 										  size.width - kPadding*2, detailTextHeight)];
 	
 	CGRect screenFrame = [[UIScreen mainScreen] bounds];
@@ -388,10 +375,10 @@ detailText;
 - (void)removalCleanup
 {
 	[[self superview] removeFromSuperview];
-	visible_ = NO;
+	_visible = NO;
 	
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
-	[delegate_ progressView:self visible:NO];
+	[_delegate progressView:self visible:NO];
 }
 
 - (void)show
@@ -401,13 +388,13 @@ detailText;
 	[superview setBackgroundColor:[UIColor clearColor]];
 	[superview addSubview:self];
 	
-	if (animationDuration_ > 0.f) {
+	if (_animationDuration > 0.f) {
 		
 		[super setAlpha:0.f];
 		[[UIWindow mainWindow] addSubview:superview];
 		
 		[UIView
-		 animateWithDuration:animationDuration_
+		 animateWithDuration:_animationDuration
 		 delay:0.f
 		 options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState
 		 animations:^{ [super setAlpha:1.f]; }
@@ -421,9 +408,9 @@ detailText;
 
 - (void)hide
 {
-	if (animationDuration_ > 0.f)
+	if (_animationDuration > 0.f)
 		[UIView
-		 animateWithDuration:animationDuration_
+		 animateWithDuration:_animationDuration
 		 delay:0.f
 		 options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState
 		 animations:^{ [super setAlpha:0.f]; }
@@ -440,22 +427,22 @@ detailText;
 		
 		[NLProgressView cancelPreviousPerformRequestsWithTarget:self selector:@selector(hide) object:nil];
 		
-		if (!visible_) {
+		if (!_visible) {
 			
 			[self setupGeometry];
 			[self show];
 			
-			visible_ = YES;
-			[delegate_ progressView:self visible:YES];
+			_visible = YES;
+			[_delegate progressView:self visible:YES];
 		}
 	}
-	else if (!visible && visible_)
+	else if (!visible && _visible)
 		[self performSelector:@selector(hide) withObject:nil afterDelay:[self hideDelay]];
 }
 
 - (void)setProgress:(CGFloat)progress
 {
-	progress_ = progress;
+	_progress = progress;
 	
 	if ([self isVisible])
 		[self setNeedsDisplay];
@@ -463,7 +450,7 @@ detailText;
 
 - (void)setText:(NSString *)text
 {
-	[textLabel_ setText:text];
+	[_textLabel setText:text];
 	
 	if ([self isVisible])
 		[self setupGeometry];
@@ -471,12 +458,12 @@ detailText;
 
 - (NSString *)text
 {
-	return [textLabel_ text];
+	return [_textLabel text];
 }
 
 - (void)setDetailText:(NSString *)detailText
 {
-	[detailTextLabel_ setText:detailText];
+	[_detailTextLabel setText:detailText];
 	
 	if ([self isVisible])
 		[self setupGeometry];
@@ -484,15 +471,16 @@ detailText;
 
 - (NSString *)detailText
 {
-	return [detailTextLabel_ text];
+	return [_detailTextLabel text];
 }
 
 - (void)setType:(NLProgressViewType)type
 {
-	if (type == type_) return;
+	if (type == _type)
+		return;
 	
-	[activityIndicator_ removeFromSuperview];
-	[typeView_			removeFromSuperview];
+	[_activityIndicator removeFromSuperview];
+	[_typeView			removeFromSuperview];
 	
 	switch (type) {
 		case NLProgressViewTypeOngoing:
@@ -527,57 +515,60 @@ detailText;
 			
 		default:
 #ifdef DEBUG
-			[NSException raise:@"NLProgressViewType is OOB" format:@"value is %i", type_];
+			[NSException raise:@"NLProgressViewType is OOB" format:@"value is %i", _type];
 #endif
 			break;
 	}
 	
-	type_ = type;
+	_type = type;
 	
 	if ([self isVisible]) [self setupGeometry];
 }
 
 - (UILabel *)textLabel
 {
-	if (textLabel_) return textLabel_;
+	if (_textLabel)
+		return _textLabel;
 	
-	textLabel_ = [[UILabel alloc] initWithFrame:CGRectZero];
+	_textLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 	
-	[textLabel_ setBackgroundColor:[UIColor clearColor]];
-	[textLabel_ setTextColor:[UIColor whiteColor]];
-	[textLabel_ setTextAlignment:NSTextAlignmentCenter];
-	[textLabel_ setFont:[UIFont boldSystemFontOfSize:18.f]];
-	[textLabel_ setNumberOfLines:0];
+	[_textLabel setBackgroundColor:[UIColor clearColor]];
+	[_textLabel setTextColor:[UIColor whiteColor]];
+	[_textLabel setTextAlignment:NSTextAlignmentCenter];
+	[_textLabel setFont:[UIFont boldSystemFontOfSize:18.f]];
+	[_textLabel setNumberOfLines:0];
 	
-	return textLabel_;
+	return _textLabel;
 }
 
 - (UILabel *)detailTextLabel
 {
-	if (detailTextLabel_) return detailTextLabel_;
+	if (_detailTextLabel)
+		return _detailTextLabel;
 	
-	detailTextLabel_ = [[UILabel alloc] initWithFrame:CGRectZero];
+	_detailTextLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 	
-	[detailTextLabel_ setBackgroundColor:[UIColor clearColor]];
-	[detailTextLabel_ setTextColor:[UIColor whiteColor]];
-	[detailTextLabel_ setTextAlignment:NSTextAlignmentCenter];
-	[detailTextLabel_ setFont:[UIFont boldSystemFontOfSize:12.f]];
-	[detailTextLabel_ setNumberOfLines:0];
+	[_detailTextLabel setBackgroundColor:[UIColor clearColor]];
+	[_detailTextLabel setTextColor:[UIColor whiteColor]];
+	[_detailTextLabel setTextAlignment:NSTextAlignmentCenter];
+	[_detailTextLabel setFont:[UIFont boldSystemFontOfSize:12.f]];
+	[_detailTextLabel setNumberOfLines:0];
 	
-	return detailTextLabel_;
+	return _detailTextLabel;
 }
 
 - (NLActivityIndicatorView *)activityIndicator
 {
-	if (activityIndicator_) return activityIndicator_;
+	if (_activityIndicator)
+		return _activityIndicator;
 	
-	activityIndicator_ = [[NLActivityIndicatorView alloc] initWithFrame:CGRectZero];
+	_activityIndicator = [[NLActivityIndicatorView alloc] initWithFrame:CGRectZero];
 	
-	[activityIndicator_ setIndicatorColor:[UIColor whiteColor]];
-	[activityIndicator_ setBackgroundColor:[UIColor clearColor]];
-	[activityIndicator_ setAnimating:YES];
+	[_activityIndicator setIndicatorColor:[UIColor whiteColor]];
+	[_activityIndicator setBackgroundColor:[UIColor clearColor]];
+	[_activityIndicator setAnimating:YES];
 	
-	return activityIndicator_;
+	return _activityIndicator;
 }
 
 @end

@@ -26,39 +26,36 @@
 #import "NLActivityIndicatorView.h"
 #import "NLMacros.h"
 
-@implementation NLActivityIndicatorView
-{
-	CGFloat		startAngle_;
-	NSTimer*	drawTimer_;
-}
+@interface NLActivityIndicatorView ()
 
-@synthesize
-animating		= animating_,
-indicatorColor	= indicatorColor_,
-indicatorWidth	= indicatorWidth_,
-indicatorStep	= indicatorStep_,
-indicatorLength	= indicatorLength_;
+@property (assign, nonatomic) CGFloat	startAngle;
+@property (strong, nonatomic) NSTimer*	drawTimer;
+
+@end
+
+@implementation NLActivityIndicatorView
 
 #pragma mark - Lifecycle
 
 - (id)initWithFrame:(CGRect)frame
 {
-	if (!(self = [super initWithFrame:frame])) return nil;
-	
-	// defaults
-	[self setIndicatorColor:[UIColor whiteColor]];
-	[self setBackgroundColor:[UIColor clearColor]];
-	[self setIndicatorWidth:5.f];
-	[self setIndicatorStep:10.f];
-	[self setIndicatorLength:120.f];
+	if (self = [super initWithFrame:frame]) {
+		
+		// defaults
+		[self setIndicatorColor:[UIColor whiteColor]];
+		[self setBackgroundColor:[UIColor clearColor]];
+		[self setIndicatorWidth:5.f];
+		[self setIndicatorStep:10.f];
+		[self setIndicatorLength:120.f];
+	}
 	
 	return self;
 }
 
 - (void)dealloc
 {
-	[drawTimer_ invalidate];
-	drawTimer_ = nil;
+	[_drawTimer invalidate];
+	_drawTimer = nil;
 }
 
 #pragma mark - Drawing
@@ -69,21 +66,22 @@ indicatorLength	= indicatorLength_;
 	CGContextSetFillColorWithColor(ctx, [[self backgroundColor] CGColor]);
 	CGContextFillRect			  (ctx, rect);
 	
-	if (!animating_) return;
+	if (!_animating)
+		return;
 	
-	CGFloat width  = CGRectGetWidth([self bounds]) - indicatorWidth_ * 2;
-	CGFloat height = CGRectGetHeight([self bounds]) - indicatorWidth_ * 2;
-	CGRect bounds  = {indicatorWidth_, indicatorWidth_, width, height};
+	CGFloat width  = CGRectGetWidth([self bounds]) - _indicatorWidth * 2;
+	CGFloat height = CGRectGetHeight([self bounds]) - _indicatorWidth * 2;
+	CGRect bounds  = {_indicatorWidth, _indicatorWidth, width, height};
 	CGFloat x	   = CGRectGetMidX(bounds);
 	CGFloat y	   = CGRectGetMidY(bounds);
 	CGFloat radius = CGRectGetWidth(bounds) / 2;
-	double start   = _radians(startAngle_);
-	double end	   = _radians(startAngle_ + indicatorLength_);
+	double start   = _radians(_startAngle);
+	double end	   = _radians(_startAngle + _indicatorLength);
 	
 	CGContextAddArc					(ctx, x, y, radius, start, end, 0);
-	CGContextSetLineWidth			(ctx, indicatorWidth_);
+	CGContextSetLineWidth			(ctx, _indicatorWidth);
 	CGContextSetLineCap				(ctx, kCGLineCapRound);
-	CGContextSetStrokeColorWithColor(ctx, [indicatorColor_ CGColor]);
+	CGContextSetStrokeColorWithColor(ctx, [_indicatorColor CGColor]);
 	CGContextStrokePath				(ctx);
 }
 
@@ -91,10 +89,10 @@ indicatorLength	= indicatorLength_;
 
 - (void)drawTimerFired:(NSTimer *)sender
 {
-	startAngle_ += indicatorStep_;
+	_startAngle += _indicatorStep;
 	
-	if (startAngle_ > 360.f)
-		startAngle_ = 0.f;
+	if (_startAngle > 360.f)
+		_startAngle = 0.f;
 	
 	[self setNeedsDisplay];
 }
@@ -103,26 +101,26 @@ indicatorLength	= indicatorLength_;
 
 - (void)setAnimating:(BOOL)animating
 {
-	if (animating && !animating_) {
+	if (animating && !_animating) {
 		
-		drawTimer_ = [NSTimer
+		_drawTimer = [NSTimer
 					  timerWithTimeInterval:0.05
 					  target:self
 					  selector:@selector(drawTimerFired:)
 					  userInfo:nil
 					  repeats:YES];
 		
-		[[NSRunLoop mainRunLoop] addTimer:drawTimer_ forMode:NSRunLoopCommonModes];
+		[[NSRunLoop mainRunLoop] addTimer:_drawTimer forMode:NSRunLoopCommonModes];
 	}
-	else if (!animating && animating_) {
+	else if (!animating && _animating) {
 		
-		[drawTimer_ invalidate];
-		drawTimer_ = nil;
+		[_drawTimer invalidate];
+		_drawTimer = nil;
 		
 		[self setNeedsDisplay];
 	}
 	
-	animating_ = animating;
+	_animating = animating;
 }
 
 @end
