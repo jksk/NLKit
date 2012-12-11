@@ -24,6 +24,7 @@
 
 #import "NLViewController.h"
 #import "NLMacros.h"
+#import "UIViewController+NLKit.h"
 
 @implementation NLViewController
 

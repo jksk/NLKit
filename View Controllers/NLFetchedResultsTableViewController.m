@@ -43,11 +43,20 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	NSError* error = nil;
-	if (_fetchedResultsController && ![_fetchedResultsController performFetch:&error]) {
+	NSFetchedResultsController* frc = [self fetchedResultsController];
+	
+	if (frc) {
+		
+		if (![frc delegate])
+			[frc setDelegate:self];
+		
+		NSError* error = nil;
+		
+		if (![frc performFetch:&error]) {
 #ifdef DEBUG
-		[NSException raise:@"NSFetchedResultsController fetch error" format:@"%@", error];
+			[NSException raise:@"NSFetchedResultsController fetch error" format:@"%@", error];
 #endif
+		}
 	}
 	
 	[super viewWillAppear:animated];

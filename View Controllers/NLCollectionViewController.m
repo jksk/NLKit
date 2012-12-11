@@ -40,6 +40,7 @@
 {
 	if (self = [super init]) {
 		
+		[self setCollectionViewLayout:layout];
 	}
 	
 	return self;

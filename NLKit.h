@@ -51,8 +51,8 @@
 // View Controllers
 #import "NLViewController.h"
 #import "NLTableViewController.h"
-#import "NLFetchedResultsTableViewController.h"
-#import "NLArrayTableViewController.h"
+//#import "NLFetchedResultsTableViewController.h"
+//#import "NLArrayTableViewController.h"
 
 // Views
 #import "NLTableViewCell.h"
@@ -65,7 +65,7 @@
 
 // Decorators
 #import "NLKeychain.h"
-#import "NLLocationController.h"
+//#import "NLLocationController.h"
 
 // External
 #import "NSData+Base64.h"
