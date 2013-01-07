@@ -23,10 +23,24 @@
 //  
 
 #import <Foundation/Foundation.h>
+#import <zlib.h>
+
+enum {
+	NLDataCompressionNone,
+	NLDataCompressionSpeed,
+	NLDataCompressionSize,
+	NLDataCompressionDefault
+};
+
+typedef NSInteger NLDataCompression;
 
 @interface NSData (NLKit)
 
 // From http://stackoverflow.com/a/9084784
 - (NSString *)hexadecimalString;
+
+// From http://www.clintharris.net/2009/how-to-gzip-data-in-memory-using-objective-c/
+- (NSData *)dataDeflatedWithCompressionLevel:(NLDataCompression)compression;
+- (NSData *)dataInflated;
 
 @end
