@@ -85,9 +85,9 @@
 
 //	Loggers
 #define dlog(f, ...)	NSLog((@"\n%s[%d]\n" f),__func__,__LINE__,##__VA_ARGS__)
-#define slog(s)			dlog(@"%@", s)
-#define flog(f)			dlog(@"%f", f)
-#define ilog(i)			dlog(@"%i", i)
+#define slog(string)	dlog(@"%@", string)
+#define flog(float)		dlog(@"%f", float)
+#define ilog(int)		dlog(@"%i", int)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //	Production macros

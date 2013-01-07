@@ -22,6 +22,7 @@
 //  IN THE SOFTWARE.
 //
 
+#import <CoreData/CoreData.h>
 #import "NLCollectionViewController.h"
 
 @interface NLFetchedResultsCollectionViewController : NLCollectionViewController
