@@ -23,10 +23,24 @@
 //  
 
 #import <Foundation/Foundation.h>
+#import <zlib.h>
+
+enum {
+	NLDataCompressionNone,
+	NLDataCompressionSpeed,
+	NLDataCompressionSize,
+	NLDataCompressionDefault
+};
+
+typedef NSInteger NLDataCompression;
 
 @interface NSData (NLKit)
 
 // From http://stackoverflow.com/a/9084784
 - (NSString *)hexadecimalString;
+
+// From https://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/Foundation/GTMNSData%2Bzlib.m
+- (NSData *)dataDeflatedWithCompressionLevel:(NLDataCompression)compression;
+- (NSData *)dataInflated;
 
 @end

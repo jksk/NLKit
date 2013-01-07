@@ -26,7 +26,6 @@
 
 @interface NSArray (NLKit)
 
-- (void)performBlockOnObjects:(void (^)(id object))block;
 - (NSString *)stringWithSeparator:(NSString *)separator;
 - (NSArray *)map:(id (^)(id obj))block;
 

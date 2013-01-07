@@ -26,6 +26,16 @@
 
 @implementation NSDate (NLKit)
 
+- (BOOL)isEarlierThanDate:(NSDate *)date
+{
+	return [self earlierDate:date] == self;
+}
+
+- (BOOL)isLaterThanDate:(NSDate *)date
+{
+	return [self laterDate:date] == self;
+}
+
 - (NSComparisonResult)compareIgnoringTime:(NSDate *)other
 {
 	NSUInteger flags			= NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;

@@ -39,6 +39,7 @@
 #import "NSString+NLKit.h"
 #import "NSString+NLKit_Hash.h"
 #import "NSUserDefaults+NLKit.h"
+#import "UIApplication+NLKit_NetworkActivity.h"
 #import "UIBarButtonItem+NLKit.h"
 #import "UIColor+NLKit.h"
 #import "UIDevice+NLKit.h"
@@ -52,6 +53,8 @@
 // View Controllers
 #import "NLViewController.h"
 #import "NLTableViewController.h"
+#import "NLCollectionViewController.h"
+#import "NLFetchedResultsCollectionViewController.h"
 #import "NLFetchedResultsTableViewController.h"
 
 // Views

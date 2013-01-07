@@ -64,7 +64,7 @@
 	return nil;
 }
 
-#pragma mark - Frame
+#pragma mark - Bounds
 
 @dynamic
 width,
@@ -72,8 +72,9 @@ height;
 
 - (void)setWidth:(CGFloat)width
 {
-	CGRect bounds = [self bounds];
-	bounds.size.width = width;
+	CGRect bounds		= [self bounds];
+	bounds.size.width	= width;
+	
 	[self setBounds:bounds];
 }
 
@@ -84,8 +85,9 @@ height;
 
 - (void)setHeight:(CGFloat)height
 {
-	CGRect bounds = [self bounds];
-	bounds.size.height = height;
+	CGRect bounds		= [self bounds];
+	bounds.size.height	= height;
+	
 	[self setBounds:bounds];
 }
 
