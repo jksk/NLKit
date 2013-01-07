@@ -48,6 +48,17 @@
 	return [NSString stringWithString:string];
 }
 
+- (NSString *)reverseString
+{
+	NSUInteger length		= [self length];
+	NSMutableString* string	= [NSMutableString stringWithCapacity:length];
+	
+	for (NSInteger i = length-1; i > -1; i--)
+		[string appendString:[self substringWithRange:NSMakeRange(i, 1)]];
+	
+	return [NSString stringWithString:string];
+}
+
 - (NSString *)URLEncodedString
 {
 	return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes

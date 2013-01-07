@@ -39,7 +39,7 @@ typedef NSInteger NLDataCompression;
 // From http://stackoverflow.com/a/9084784
 - (NSString *)hexadecimalString;
 
-// From http://www.clintharris.net/2009/how-to-gzip-data-in-memory-using-objective-c/
+// From https://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/Foundation/GTMNSData%2Bzlib.m
 - (NSData *)dataDeflatedWithCompressionLevel:(NLDataCompression)compression;
 - (NSData *)dataInflated;
 

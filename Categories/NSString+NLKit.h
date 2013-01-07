@@ -29,6 +29,7 @@
 - (BOOL)isInteger;
 
 - (NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)set;
+- (NSString *)reverseString;
 
 - (NSString *)URLEncodedString;
 - (NSString *)URLDecodedString;
