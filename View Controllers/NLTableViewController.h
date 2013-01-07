@@ -32,7 +32,6 @@
 @property (strong, nonatomic) UITableView*	tableView;
 
 - (id)initWithTableViewStyle:(UITableViewStyle)style;
-
 - (void)configureCell:(NLTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

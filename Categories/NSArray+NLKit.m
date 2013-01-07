@@ -26,12 +26,6 @@
 
 @implementation NSArray (NLKit)
 
-- (void)performBlockOnObjects:(void (^)(id object))block
-{
-	for (id member in self)
-		block(member);
-}
-
 - (NSString *)stringWithSeparator:(NSString *)separator
 {
 	NSMutableString* string = [NSMutableString string];

@@ -26,7 +26,7 @@
 
 @interface NSDateFormatter (NLKit)
 
-// code from http://lukeredpath.co.uk/blog/parsing-strings-with-nsdateformatter-gotcha.html
+// from http://lukeredpath.co.uk/blog/parsing-strings-with-nsdateformatter-gotcha.html
 - (NSDate *)dateFromISO8601String:(NSString *)string;
 
 @end

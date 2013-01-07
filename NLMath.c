@@ -43,7 +43,7 @@ static float a4float(float low, float high)
 
 static int a4int(int low, int high)
 {
-	return (int)round(((double)arc4random() / ARC4RANDOM_MAX) * (high - low) + low);
+	return low + (int)arc4random_uniform(high-low+1);
 }
 
 const struct NLRandomStruct NLRandom = {

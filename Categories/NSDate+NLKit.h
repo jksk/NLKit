@@ -26,6 +26,9 @@
 
 @interface NSDate (NLKit)
 
+- (BOOL)isEarlierThanDate:(NSDate *)date;
+- (BOOL)isLaterThanDate:(NSDate *)date;
+
 - (NSComparisonResult)compareIgnoringTime:(NSDate *)other;
 - (NSComparisonResult)compareIgnoringDate:(NSDate *)other;
 

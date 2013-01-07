@@ -32,7 +32,7 @@
 - (void)roundCorners:(UIRectCorner)corners withRadius:(CGFloat)radius;
 - (id)subviewWithClassname:(NSString *)classname;
 
-// frame
+// bounds
 @property (assign, nonatomic) CGFloat	width;
 @property (assign, nonatomic) CGFloat	height;
 
