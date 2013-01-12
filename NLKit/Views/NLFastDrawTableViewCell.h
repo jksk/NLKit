@@ -22,7 +22,7 @@
 //  IN THE SOFTWARE.
 //  
 
-// Based ABTableViewCell
+// Based on ABTableViewCell
 // By Loren Brichter
 
 #import "NLTableViewCell.h"
