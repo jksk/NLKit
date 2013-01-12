@@ -33,7 +33,9 @@
 	if (window)
 		return window;
 	
-	return [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+	NSArray* windows = [[UIApplication sharedApplication] windows];
+	
+	return [windows count] ? windows[0] : nil;
 }
 
 + (UIView *)keyboardView
