@@ -28,7 +28,8 @@
 <UICollectionViewDataSource,
  UICollectionViewDelegate>
 
-@property (strong, nonatomic) UICollectionView*	collectionView;
+@property (strong, nonatomic) UICollectionView*			collectionView;
+@property (strong, nonatomic) UICollectionViewLayout*	collectionViewLayout;
 
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout;
 - (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;

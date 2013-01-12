@@ -26,7 +26,6 @@
 
 @interface NLCollectionViewController ()
 
-@property (strong, nonatomic) UICollectionViewLayout*	collectionViewLayout;
 @property (strong, nonatomic) NSMutableArray*			sectionChanges;
 @property (strong, nonatomic) NSMutableArray*			objectChanges;
 
@@ -85,7 +84,7 @@
 	if (_collectionView)
 		return _collectionView;
 	
-	UICollectionViewLayout* layout = _collectionViewLayout;
+	UICollectionViewLayout* layout = [self collectionViewLayout];
 	
 	if (!layout) {
 		
