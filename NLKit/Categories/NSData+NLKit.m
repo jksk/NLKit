@@ -138,8 +138,6 @@
 		
 		status = inflate(&stream, Z_SYNC_FLUSH);
 		
-		ilog(status);
-		
 		if (status != Z_OK && status != Z_STREAM_END) {
 #ifdef DEBUG
 			[NSException raise:@"zlib inflate error" format:@"%i %@", status, [NSData errorStringForZLibError:status]];
