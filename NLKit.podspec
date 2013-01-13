@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/jksk/NLKit"
   s.license      = 'MIT'
   s.author       = { "Jesper Skrufve" => "jesper@neolo.gy" }
-  s.source       = { :git => "https://github.com/jksk/NLKit.git", :tag => "0.2.0" }
+  s.source       = { :git => "https://github.com/jksk/NLKit.git", :tag => "0.2.1" }
   s.platform     = :ios, '6.0'
   s.source_files = 'NLKit'
   s.frameworks   = 'QuartzCore', 'Security', 'CoreLocation', 'CoreData'
