@@ -7,7 +7,7 @@
 //
 
 #import "NSMutableArray+NLKit.h"
-#import "../NLMath.h"
+#import "../../NLMath.h"
 
 @implementation NSMutableArray (NLKit)
 
