@@ -53,7 +53,7 @@
 #define _radians(degrees)						(M_PI * (degrees) / 180.0)
 #define _degrees(radians)						(180.0 * (radians) / M_PI)
 
-#define _bw										__block __weak
+#define weakify(object)							__weak typeof(object) w ## object = object
 
 //	Convenience objects, mostly from https://bitbucket.org/snej/myutilities and https://github.com/nevyn/SPSuccinct
 #define _marr(...)								[NSMutableArray arrayWithObjects:__VA_ARGS__, nil]
