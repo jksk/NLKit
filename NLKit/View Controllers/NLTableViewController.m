@@ -23,6 +23,8 @@
 //
 
 #import "NLTableViewController.h"
+#import "NLMacros.h"
+#import "UIViewController+NLKit.h"
 
 @interface NLTableViewController ()
 
