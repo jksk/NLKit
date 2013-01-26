@@ -2,17 +2,17 @@
 //  NLFetchedResultsTableViewController.m
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
-//  
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
 //  deal in the Software without restriction, including without limitation the
 //  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
 //  sell copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-//  
+//
 //  The above copyright notice and this permission notice shall be included in
 //  all copies or substantial portions of the Software.
-//  
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,7 +20,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 //  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 //  IN THE SOFTWARE.
-//  
+//
 
 #import "NLFetchedResultsTableViewController.h"
 #import "NLMacros.h"
@@ -29,13 +29,13 @@
 
 #pragma mark - Lifecycle
 
-- (id)initWithTableViewStyle:(UITableViewStyle)style
+- (id)init
 {
-	if (self = [super initWithTableViewStyle:style]) {
-		
+	if (self = [super init]) {
+
 		[self setTableViewUpdateAnimation:UITableViewRowAnimationNone];
 	}
-	
+
 	return self;
 }
 
@@ -44,21 +44,21 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	NSFetchedResultsController* frc = [self fetchedResultsController];
-	
+
 	if (frc) {
-		
+
 		if (![frc delegate])
 			[frc setDelegate:self];
-		
+
 		NSError* error = nil;
-		
+
 		if (![frc performFetch:&error]) {
 #ifdef DEBUG
 			[NSException raise:@"NSFetchedResultsController fetch error" format:@"%@", error];
 #endif
 		}
 	}
-	
+
 	[super viewWillAppear:animated];
 }
 
@@ -90,12 +90,12 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
 	switch (type) {
-			
+
 		case NSFetchedResultsChangeInsert:
 			[[self tableView] insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
 							withRowAnimation:_tableViewUpdateAnimation];
 			break;
-			
+
 		case NSFetchedResultsChangeDelete:
 			[[self tableView] deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
 							withRowAnimation:_tableViewUpdateAnimation];
@@ -109,22 +109,22 @@
 		case NSFetchedResultsChangeInsert:
 			[[self tableView] insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:_tableViewUpdateAnimation];
 			break;
-			
+
 		case NSFetchedResultsChangeDelete:
 			[[self tableView] deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:_tableViewUpdateAnimation];
 			break;
-			
+
 		case NSFetchedResultsChangeMove:
 			[[self tableView] moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
 			break;
-			
+
 		case NSFetchedResultsChangeUpdate: {
-			
+
 			NLTableViewCell* cell = (NLTableViewCell *)[[self tableView] cellForRowAtIndexPath:indexPath];
-			
+
 			if (cell)
 				[self configureCell:cell atIndexPath:indexPath];
-			
+
 			break;
 		}
 	}
