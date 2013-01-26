@@ -70,8 +70,8 @@
 	_adjustViewWhenKeyboardDisplayed = adjustViewWhenKeyboardDisplayed;
 
 	if (adjustViewWhenKeyboardDisplayed && [self isViewLoaded])
-	else if (!adjustViewWhenKeyboardDisplayed)
 		[self addKeyboardObservers];
+	else if (!adjustViewWhenKeyboardDisplayed)
 		[self removeKeyboardObservers];
 }
 
