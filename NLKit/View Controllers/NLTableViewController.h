@@ -22,13 +22,16 @@
 //  IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "NLViewController.h"
 #import "NLTableViewCell.h"
 
-@interface NLTableViewController : UITableViewController
+@interface NLTableViewController : NLViewController
+<UITableViewDataSource,
+ UITableViewDelegate>
 
-@property (assign, nonatomic) BOOL	adjustViewWhenKeyboardDisplayed;
+@property (strong, nonatomic) UITableView*	tableView;
 
+- (id)initWithTableViewStyle:(UITableViewStyle)style;
 - (void)configureCell:(NLTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

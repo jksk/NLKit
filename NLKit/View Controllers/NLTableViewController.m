@@ -23,10 +23,10 @@
 //
 
 #import "NLTableViewController.h"
-#import "NLMacros.h"
-#import "UIViewController+NLKit.h"
 
 @interface NLTableViewController ()
+
+@property (assign, nonatomic) UITableViewStyle	tableViewStyle;
 
 @end
 
@@ -34,17 +34,14 @@
 
 #pragma mark - Lifecycle
 
-- (void)dealloc
+- (id)initWithTableViewStyle:(UITableViewStyle)style
 {
-	[self removeKeyboardObservers];
-}
+	if (self = [super init]) {
 
-- (void)didReceiveMemoryWarning
-{
-	[super didReceiveMemoryWarning];
+		[self setTableViewStyle:style];
+	}
 
-	if (![self isViewLoaded])
-		[self removeKeyboardObservers];
+	return self;
 }
 
 #pragma mark - View lifecycle
@@ -52,12 +49,41 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	[[self view] addSubview:[self tableView]];
+}
 
-	if (_adjustViewWhenKeyboardDisplayed)
-		[self addKeyboardObservers];
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	[_tableView reloadData];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 0;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NLTableViewCell* cell = [NLTableViewCell cellForTableView:tableView cellInit:NULL];
+
+	[self configureCell:cell atIndexPath:indexPath];
+	return cell;
+}
 
 - (void)configureCell:(NLTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
@@ -65,14 +91,18 @@
 
 #pragma mark - Properties
 
-- (void)setAdjustViewWhenKeyboardDisplayed:(BOOL)adjustViewWhenKeyboardDisplayed
+- (UITableView *)tableView
 {
-	_adjustViewWhenKeyboardDisplayed = adjustViewWhenKeyboardDisplayed;
+	if (_tableView)
+		return _tableView;
 
-	if (adjustViewWhenKeyboardDisplayed && [self isViewLoaded])
-		[self addKeyboardObservers];
-	else if (!adjustViewWhenKeyboardDisplayed)
-		[self removeKeyboardObservers];
+	_tableView = [[UITableView alloc] initWithFrame:[[self view] bounds] style:_tableViewStyle];
+
+	[_tableView setDelegate:self];
+	[_tableView setDataSource:self];
+	[_tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+
+	return _tableView;
 }
 
 @end
