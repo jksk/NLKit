@@ -1,5 +1,5 @@
 //
-//  UITableView+NLKit.h
+//  UICollectionView+NLKit.h
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
 //
@@ -24,19 +24,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableView (NLKit)
-
-- (void)reloadDataKeepSelection;
-- (void)reloadDataWithRowAnimation:(UITableViewRowAnimation)animation;
-
-- (void)selectRowsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
-- (void)selectAllRowsAnimated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
-
-- (CGSize)cellSize;
-- (CGSize)cellSizeForIndexPath:(NSIndexPath *)indexPath;
+@interface UICollectionView (NLKit)
 
 - (void)registerClassForCellWithDefaultReuseIdentifier:(Class)cellClass;
-- (id)dequeueReusableCellWithDefaultIdentifier;
-- (id)dequeueReusableCellWithDefaultIdentifierForIndexPath:(NSIndexPath *)indexPath;
+- (id)dequeueReusableCellWithDefaultReuseIdentifierForIndexPath:(NSIndexPath *)indexPath;
 
 @end

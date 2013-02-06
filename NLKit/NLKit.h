@@ -41,6 +41,7 @@
 #import "NLKit/NSUserDefaults+NLKit.h"
 #import "NLKit/UIApplication+NLKit_NetworkActivity.h"
 #import "NLKit/UIBarButtonItem+NLKit.h"
+#import "NLKit/UICollectionView+NLKit.h"
 #import "NLKit/UIColor+NLKit.h"
 #import "NLKit/UIDevice+NLKit.h"
 #import "NLKit/UIImage+NLKit.h"

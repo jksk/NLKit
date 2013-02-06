@@ -1,5 +1,5 @@
 //
-//  UITableView+NLKit.h
+//  UICollectionView+NLKit.m
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
 //
@@ -22,21 +22,20 @@
 //  IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "UICollectionView+NLKit.h"
 
-@interface UITableView (NLKit)
+#define NLDefaultCellIdentifier	@"NLDefaultCellIdentifier"
 
-- (void)reloadDataKeepSelection;
-- (void)reloadDataWithRowAnimation:(UITableViewRowAnimation)animation;
+@implementation UICollectionView (NLKit)
 
-- (void)selectRowsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
-- (void)selectAllRowsAnimated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
+- (void)registerClassForCellWithDefaultReuseIdentifier:(Class)cellClass
+{
+	[self registerClass:cellClass forCellWithReuseIdentifier:NLDefaultCellIdentifier];
+}
 
-- (CGSize)cellSize;
-- (CGSize)cellSizeForIndexPath:(NSIndexPath *)indexPath;
-
-- (void)registerClassForCellWithDefaultReuseIdentifier:(Class)cellClass;
-- (id)dequeueReusableCellWithDefaultIdentifier;
-- (id)dequeueReusableCellWithDefaultIdentifierForIndexPath:(NSIndexPath *)indexPath;
+- (id)dequeueReusableCellWithDefaultReuseIdentifierForIndexPath:(NSIndexPath *)indexPath
+{
+	return [self dequeueReusableCellWithReuseIdentifier:NLDefaultCellIdentifier forIndexPath:indexPath];
+}
 
 @end
