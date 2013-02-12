@@ -26,6 +26,11 @@
 
 @interface UICollectionView (NLKit)
 
+- (void)reloadDataKeepSelection;
+
+- (void)selectItemsAtIndexPaths:(NSArray *)indexPaths animated:(BOOL)animated scrollPosition:(UICollectionViewScrollPosition)scrollPosition;
+- (void)selectAllItemsAnimated:(BOOL)animated scrollPosition:(UICollectionViewScrollPosition)scrollPosition;
+
 - (void)registerClassForCellWithDefaultReuseIdentifier:(Class)cellClass;
 - (id)dequeueReusableCellWithDefaultReuseIdentifierForIndexPath:(NSIndexPath *)indexPath;
 
