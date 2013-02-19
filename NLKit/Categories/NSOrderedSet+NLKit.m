@@ -23,6 +23,7 @@
 //
 
 #import "NSOrderedSet+NLKit.h"
+#import "NLMath.h"
 
 @implementation NSOrderedSet (NLKit)
 

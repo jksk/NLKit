@@ -23,6 +23,7 @@
 //
 
 #import "NSArray+NLKit.h"
+#import "NLMath.h"
 
 @implementation NSArray (NLKit)
 
