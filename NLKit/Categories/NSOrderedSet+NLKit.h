@@ -1,5 +1,5 @@
 //
-//  NSArray+NLKit.m
+//  NSOrderedSet+NLKit.h
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
 //
@@ -22,53 +22,10 @@
 //  IN THE SOFTWARE.
 //
 
-#import "NSArray+NLKit.h"
+#import <Foundation/Foundation.h>
 
-@implementation NSArray (NLKit)
+@interface NSOrderedSet (NLKit)
 
-- (NSString *)stringWithSeparator:(NSString *)separator
-{
-	NSMutableString* string = [NSMutableString string];
-
-	for (id obj in self) {
-
-		if ([string length])
-			[string appendString:separator];
-
-		if ([obj isKindOfClass:[NSString class]])
-			[string appendString:obj];
-		else if ([obj respondsToSelector:@selector(stringValue)])
-			[string appendString:[obj stringValue]];
-		else
-			[string appendString:[obj description]];
-	}
-
-	return [NSString stringWithString:string];
-}
-
-- (NSArray *)map:(id (^)(id))block
-{
-	NSMutableArray* array = [NSMutableArray array];
-
-	for (id obj in self) {
-
-		id mapped = block(obj);
-
-		if (mapped)
-			[array addObject:mapped];
-	}
-
-	return [NSArray	arrayWithArray:array];
-}
-
-- (id)randomObject
-{
-	NSUInteger count = [self count];
-
-	if (!count)
-		return nil;
-
-	return self[NLRandom.rint(0, count-1)];
-}
+- (id)randomObject;
 
 @end

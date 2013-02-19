@@ -36,6 +36,7 @@
 #import "NLKit/NSNotificationCenter+NLKit.h"
 #import "NLKit/NSNotificationCenter+NLKit_Threading.h"
 #import "NLKit/NSNumber+NLKit.h"
+#import "NLKit/NSOrderedSet+NLKit.h"
 #import "NLKit/NSString+NLKit.h"
 #import "NLKit/NSString+NLKit_Hash.h"
 #import "NLKit/NSUserDefaults+NLKit.h"
