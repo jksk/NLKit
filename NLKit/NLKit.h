@@ -25,6 +25,7 @@
 #import "NLMacros.h"
 #import "NLMath.h"
 #import "NLTiming.h"
+#import "NLAtomic.h"
 
 // Categories
 #import "NLKit/NSArray+NLKit.h"
