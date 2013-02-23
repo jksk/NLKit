@@ -2,17 +2,17 @@
 //  NSDate+NLKit.m
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
-//  
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
 //  deal in the Software without restriction, including without limitation the
 //  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
 //  sell copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-//  
+//
 //  The above copyright notice and this permission notice shall be included in
 //  all copies or substantial portions of the Software.
-//  
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,7 +20,7 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 //  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 //  IN THE SOFTWARE.
-//  
+//
 
 #import "NSDate+NLKit.h"
 
@@ -42,7 +42,7 @@
 	NSCalendar* calendar		= [NSCalendar currentCalendar];
 	NSDate* selfWithoutTime		= [calendar dateFromComponents:[calendar components:flags fromDate:self]];
 	NSDate* otherWithoutTime	= [calendar dateFromComponents:[calendar components:flags fromDate:other]];
-	
+
 	return [selfWithoutTime compare:otherWithoutTime];
 }
 
@@ -52,8 +52,26 @@
 	NSCalendar* calendar		= [NSCalendar currentCalendar];
 	NSDate* selfWithoutDate		= [calendar dateFromComponents:[calendar components:flags fromDate:self]];
 	NSDate* otherWithoutDate	= [calendar dateFromComponents:[calendar components:flags fromDate:other]];
-	
+
 	return [selfWithoutDate compare:otherWithoutDate];
+}
+
+- (NSDate *)dateWithoutTimeComponent
+{
+	NSUInteger flags				= NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
+	NSCalendar* calendar			= [NSCalendar currentCalendar];
+	NSDateComponents* components	= [calendar components:flags fromDate:self];
+
+	return [calendar dateFromComponents:components];
+}
+
+- (NSDate *)dateWithoutDateComponent
+{
+	NSUInteger flags				= NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit;
+	NSCalendar* calendar			= [NSCalendar currentCalendar];
+	NSDateComponents* components	= [[NSCalendar currentCalendar] components:flags fromDate:self];
+
+	return [calendar dateFromComponents:components];
 }
 
 - (NSDate *)dateByAddingMinutes:(NSInteger)minutes
@@ -119,10 +137,10 @@
 - (NSString *)stringWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle
 {
 	NSDateFormatter* df = [[NSDateFormatter alloc] init];
-	
+
 	[df setDateStyle:dateStyle];
 	[df setTimeStyle:timeStyle];
-	
+
 	return [df stringFromDate:self];
 }
 
