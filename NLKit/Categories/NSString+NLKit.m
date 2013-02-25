@@ -29,7 +29,7 @@
 
 - (BOOL)isInteger
 {
-	return [self isEqualToString:[NSString stringWithFormat:@"%i", [self integerValue]]];
+	return [self rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound;
 }
 
 - (NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)set
