@@ -30,4 +30,7 @@
 - (NSArray *)map:(id (^)(id obj))block;
 - (id)randomObject;
 
+- (NSArray *)subarrayFromIndex:(NSUInteger)index;
+- (NSArray *)subarrayToIndex:(NSUInteger)index;
+
 @end

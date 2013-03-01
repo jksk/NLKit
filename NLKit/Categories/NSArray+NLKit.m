@@ -72,4 +72,14 @@
 	return self[NLRandom.rint(0, count-1)];
 }
 
+- (NSArray *)subarrayFromIndex:(NSUInteger)index
+{
+	return [self subarrayWithRange:NSMakeRange(index, [self count] - index)];
+}
+
+- (NSArray *)subarrayToIndex:(NSUInteger)index
+{
+	return [self subarrayWithRange:NSMakeRange(0, index + 1)];
+}
+
 @end
