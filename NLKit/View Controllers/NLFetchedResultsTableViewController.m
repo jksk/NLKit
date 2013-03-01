@@ -118,15 +118,9 @@
 			[[self tableView] moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
 			break;
 
-		case NSFetchedResultsChangeUpdate: {
-
-			NLTableViewCell* cell = (NLTableViewCell *)[[self tableView] cellForRowAtIndexPath:indexPath];
-
-			if (cell)
-				[self configureCell:cell atIndexPath:indexPath];
-
+		case NSFetchedResultsChangeUpdate:
+			[[self tableView] reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 			break;
-		}
 	}
 }
 
