@@ -32,6 +32,5 @@
 @property (strong, nonatomic) UICollectionViewLayout*	collectionViewLayout;
 
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout;
-- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

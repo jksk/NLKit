@@ -81,12 +81,7 @@
 {
 	NLTableViewCell* cell = [NLTableViewCell cellForTableView:tableView cellInit:NULL];
 
-	[self configureCell:cell atIndexPath:indexPath];
 	return cell;
-}
-
-- (void)configureCell:(NLTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
 }
 
 #pragma mark - Properties

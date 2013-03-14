@@ -38,10 +38,10 @@
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
 {
 	if (self = [super init]) {
-		
+
 		[self setCollectionViewLayout:layout];
 	}
-	
+
 	return self;
 }
 
@@ -50,14 +50,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+
 	[[self view] addSubview:[self collectionView]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	
+
 	[_collectionView reloadData];
 }
 
@@ -73,36 +73,32 @@
 	return nil;
 }
 
-- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-}
-
 #pragma mark - Properties
 
 - (UICollectionView *)collectionView
 {
 	if (_collectionView)
 		return _collectionView;
-	
+
 	UICollectionViewLayout* layout = [self collectionViewLayout];
-	
+
 	if (!layout) {
-		
+
 		layout = [[UICollectionViewFlowLayout alloc] init];
-		
+
 		[(UICollectionViewFlowLayout *)layout setItemSize:CGSizeMake(100.f, 120.f)];
 		[(UICollectionViewFlowLayout *)layout setMinimumInteritemSpacing:5.f];
 		[(UICollectionViewFlowLayout *)layout setMinimumLineSpacing:5.f];
 		[(UICollectionViewFlowLayout *)layout setSectionInset:UIEdgeInsetsMake(5.f, 5.f, 5.f, 5.f)];
 	}
-	
+
 	_collectionView	= [[UICollectionView alloc] initWithFrame:[[self view] bounds] collectionViewLayout:layout];
-	
+
 	[_collectionView setDelegate:self];
 	[_collectionView setDataSource:self];
 	[_collectionView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 	[_collectionView setBackgroundColor:[UIColor whiteColor]];
-	
+
 	return _collectionView;
 }
 

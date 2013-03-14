@@ -38,9 +38,9 @@
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
 {
 	if (self = [super initWithCollectionViewLayout:layout]) {
-		
+
 	}
-	
+
 	return self;
 }
 
@@ -49,21 +49,21 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	NSFetchedResultsController* frc = [self fetchedResultsController];
-	
+
 	if (frc) {
-		
+
 		if (![frc delegate])
 			[frc setDelegate:self];
-		
+
 		NSError* error = nil;
-		
+
 		if (![frc performFetch:&error]) {
 #ifdef DEBUG
 			[NSException raise:@"NSFetchedResultsController fetch error" format:@"%@", error];
 #endif
 		}
 	}
-	
+
 	[super viewWillAppear:animated];
 }
 
@@ -77,7 +77,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
 	id<NSFetchedResultsSectionInfo> info = [[self fetchedResultsController] sections][section];
-	
+
 	return [info numberOfObjects];
 }
 
@@ -86,57 +86,62 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
 	UICollectionView* collectionView = [self collectionView];
-	
+
 	[collectionView performBatchUpdates:^{
-		
+
 		for (NSArray* item in _sectionChanges) {
-			
+
 			NSFetchedResultsChangeType type = [item[0] unsignedIntegerValue];
-			
+
 			switch (type) {
 				case NSFetchedResultsChangeInsert:
-					
+
 					[collectionView insertSections:item[1]];
-					
+
 					break;
 				case NSFetchedResultsChangeDelete:
-					
+
 					[collectionView deleteSections:item[1]];
-					
+
 					break;
 			}
 		}
-		
+
 		for (NSArray* item in _objectChanges) {
-			
+
 			NSFetchedResultsChangeType type = [item[0] unsignedIntegerValue];
-			
+
 			switch (type) {
 				case NSFetchedResultsChangeInsert:
-					
+
 					[collectionView insertItemsAtIndexPaths:@[item[1]]];
-					
+
 					break;
 				case NSFetchedResultsChangeDelete:
-					
+
 					[collectionView deleteItemsAtIndexPaths:@[item[1]]];
-					
+
 					break;
 				case NSFetchedResultsChangeMove: {
-					
+
 					NSArray* paths = item[1];
 					[collectionView moveItemAtIndexPath:paths[0] toIndexPath:paths[1]];
-					
+
 					break;
 				}
+				case NSFetchedResultsChangeUpdate:
+
+					[collectionView reloadItemsAtIndexPaths:@[item[1]]];
+
+					break;
 			}
 		}
-		
+
 		[self setSectionChanges:nil];
 		[self setObjectChanges:nil];
-		
+
 	} completion:^(BOOL finished) {
-		
+
 	}];
 }
 
@@ -149,32 +154,23 @@
 {
 	switch (type) {
 		case NSFetchedResultsChangeInsert:
-			
+
 			[[self objectChanges] addObject:@[@(type), newIndexPath]];
-			
+
 			break;
-			
+
+		case NSFetchedResultsChangeUpdate:
 		case NSFetchedResultsChangeDelete:
-			
+
 			[[self objectChanges] addObject:@[@(type), indexPath]];
-			
+
 			break;
-			
+
 		case NSFetchedResultsChangeMove:
-			
+
 			[[self objectChanges] addObject:@[@(type), @[indexPath, newIndexPath]]];
-			
+
 			break;
-			
-		case NSFetchedResultsChangeUpdate: {
-			
-			id cell = [[self collectionView] cellForItemAtIndexPath:indexPath];
-			
-			if (cell)
-				[self configureCell:cell atIndexPath:indexPath];
-			
-			break;
-		}
 	}
 }
 
@@ -184,9 +180,9 @@
 {
 	if (_sectionChanges)
 		return _sectionChanges;
-	
+
 	_sectionChanges = [NSMutableArray array];
-	
+
 	return _sectionChanges;
 }
 
@@ -194,9 +190,9 @@
 {
 	if (_objectChanges)
 		return _objectChanges;
-	
+
 	_objectChanges = [NSMutableArray array];
-	
+
 	return _objectChanges;
 }
 
