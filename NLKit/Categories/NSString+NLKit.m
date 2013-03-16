@@ -82,4 +82,38 @@
 		(NULL, (__bridge CFStringRef)self, NULL, kCFStringEncodingUTF8);
 }
 
+- (NSString *)substringFromString:(NSString *)string
+{
+	return [self substringBetweenString:string andString:@""];
+}
+
+- (NSString *)substringToString:(NSString *)string
+{
+	return [self substringBetweenString:@"" andString:string];
+}
+
+- (NSString *)substringBetweenString:(NSString *)startString andString:(NSString *)endString
+{
+	NSUInteger len = [self length];
+
+	if (!len)
+		return @"";
+
+	NSRange start = [self rangeOfString:startString];
+
+	if (!start.length)
+		start = NSMakeRange(0, 0);
+
+	NSRange end = [self rangeOfString:endString];
+
+	if (!end.length)
+		end = NSMakeRange(len, 0);
+
+	NSUInteger subStart	= start.location + start.length;
+	NSUInteger subLen	= end.location - subStart;
+	NSRange range		= NSMakeRange(subStart, subLen);
+
+	return [self substringWithRange:range];
+}
+
 @end

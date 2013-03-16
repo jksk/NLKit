@@ -35,4 +35,21 @@
 - (NSString *)URLEncodedString;
 - (NSString *)URLDecodedString;
 
+/**
+ Returns whole string if string is not found.
+ */
+- (NSString *)substringFromString:(NSString *)string;
+
+/**
+ Returns whole string if string is not found.
+ */
+- (NSString *)substringToString:(NSString *)string;
+
+/**
+ Returns whole string up to endString if startString is not found.
+ Returns whole string from startString if endString is not found.
+ Returns whole string if neither string is not found.
+ */
+- (NSString *)substringBetweenString:(NSString *)startString andString:(NSString *)endString;
+
 @end
