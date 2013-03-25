@@ -27,7 +27,7 @@
 @interface NSArray (NLKit)
 
 - (NSString *)stringWithSeparator:(NSString *)separator;
-- (NSArray *)map:(id (^)(id obj))block;
+- (NSArray *)mapArray:(id (^)(id obj))block;
 - (id)randomObject;
 
 - (NSArray *)subarrayFromIndex:(NSUInteger)index;

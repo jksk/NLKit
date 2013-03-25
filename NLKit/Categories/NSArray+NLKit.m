@@ -47,7 +47,7 @@
 	return [NSString stringWithString:string];
 }
 
-- (NSArray *)map:(id (^)(id))block
+- (NSArray *)mapArray:(id (^)(id))block
 {
 	NSMutableArray* array = [NSMutableArray array];
 

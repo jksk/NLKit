@@ -26,6 +26,6 @@
 
 @interface NSSet (NLKit)
 
-- (NSSet *)map:(id (^)(id obj))block;
+- (NSSet *)mapSet:(id (^)(id obj))block;
 
 @end

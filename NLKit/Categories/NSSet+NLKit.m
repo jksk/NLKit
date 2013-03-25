@@ -26,7 +26,7 @@
 
 @implementation NSArray (NLKit)
 
-- (NSSet *)map:(id (^)(id))block
+- (NSSet *)mapSet:(id (^)(id))block
 {
 	NSMutableSet* set = [NSMutableSet set];
 
