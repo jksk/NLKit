@@ -34,9 +34,9 @@ CGPoint CGRectGetTopLeft(CGRect rect)
 	return CGPointMake(CGRectGetMinX(rect), CGRectGetMinY(rect));
 }
 
-CGPoint CGRectGetTopRight(CGRect rect)
+CGPoint CGRectGetMidLeft(CGRect rect)
 {
-	return CGPointMake(CGRectGetMaxX(rect), CGRectGetMinY(rect));
+	return CGPointMake(CGRectGetMinX(rect), CGRectGetMidY(rect));
 }
 
 CGPoint CGRectGetBottomLeft(CGRect rect)
@@ -44,7 +44,27 @@ CGPoint CGRectGetBottomLeft(CGRect rect)
 	return CGPointMake(CGRectGetMinX(rect), CGRectGetMaxY(rect));
 }
 
+CGPoint CGRectGetTopRight(CGRect rect)
+{
+	return CGPointMake(CGRectGetMaxX(rect), CGRectGetMinY(rect));
+}
+
+CGPoint CGRectGetMidRight(CGRect rect)
+{
+	return CGPointMake(CGRectGetMaxX(rect), CGRectGetMidY(rect));
+}
+
 CGPoint CGRectGetBottomRight(CGRect rect)
 {
 	return CGPointMake(CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+}
+
+CGPoint CGRectGetMidTop(CGRect rect)
+{
+	return CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
+}
+
+CGPoint CGRectGetMidBottom(CGRect rect)
+{
+	return CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
 }

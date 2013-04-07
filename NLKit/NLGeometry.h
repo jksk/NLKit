@@ -25,7 +25,14 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 CG_EXTERN CGPoint CGRectGetCenter(CGRect rect);
+
 CG_EXTERN CGPoint CGRectGetTopLeft(CGRect rect);
-CG_EXTERN CGPoint CGRectGetTopRight(CGRect rect);
+CG_EXTERN CGPoint CGrectGetMidLeft(CGRect rect);
 CG_EXTERN CGPoint CGRectGetBottomLeft(CGRect rect);
+
+CG_EXTERN CGPoint CGRectGetTopRight(CGRect rect);
+CG_EXTERN CGPoint CGRectGetMidRight(CGRect rect);
 CG_EXTERN CGPoint CGRectGetBottomRight(CGRect rect);
+
+CG_EXTERN CGPoint CGRectGetMidTop(CGRect rect);
+CG_EXTERN CGPoint CGRectGetMidBottom(CGRect rect);
