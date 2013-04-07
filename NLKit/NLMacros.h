@@ -41,7 +41,6 @@
 #define MAX3(x,y,z)								MAX(MAX(x,y),z)
 #define MID(min,x,max)							MAX(MIN(x, max), min)
 
-#define CGRectGetCenter(rect)					CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
 #define CLLocationCoordinate2DZero				CLLocationCoordinate2DMake(0.0, 0.0)
 #define NSStringFromCLLocationCoordinate2D(c)	[NSString stringWithFormat:@"{%f, %f}", c.latitude, c.longitude]
 #define NSStringFromNSIndexPath(ip)				[NSString stringWithFormat:@"{%i, %i}", ip.section, ip.row]
