@@ -23,6 +23,7 @@
 //
 
 #import "NLMacros.h"
+#import "NLGeometry.h"
 #import "NLMath.h"
 #import "NLTiming.h"
 #import "NLAtomic.h"
