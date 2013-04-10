@@ -75,6 +75,3 @@
 // Decorators
 #import "NLKit/NLKeychain.h"
 #import "NLKit/NLLocationController.h"
-
-// External
-#import "NLKit/NSData+Base64.h"
