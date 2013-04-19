@@ -1,5 +1,5 @@
 //
-//  NSMutableArray+NLKit.h
+//  NSMutableDictionary+NLKit.h
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
 //
@@ -22,21 +22,11 @@
 //  IN THE SOFTWARE.
 //
 
-#import "NSMutableArray+NLKit.h"
-#import "NLKit.h"
+#import <Foundation/Foundation.h>
 
-@implementation NSMutableArray (NLKit)
+@interface NSMutableDictionary (NLKit)
 
-- (void)randomize
-{
-	for (NSInteger i = [self count]-1; i > 1; i--)
-		[self exchangeObjectAtIndex:i withObjectAtIndex:NLRandom.rint(0, i)];
-}
-
-- (void)safeAddObject:(id)anObject
-{
-	if (anObject)
-		[self addObject:anObject];
-}
+- (void)renameKey:(NSString *)key toKey:(NSString *)newKey;
+- (void)safeSetObject:(id)anObject forKey:(id <NSCopying>)aKey;
 
 @end

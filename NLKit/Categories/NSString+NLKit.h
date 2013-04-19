@@ -27,29 +27,24 @@
 @interface NSString (NLKit)
 
 - (BOOL)isInteger;
+- (NSArray *)componentsSeparatedAtEachCharacter;
 
 - (NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)set;
 - (NSString *)reverseString;
 - (NSString *)firstLetterCapitalizedString;
+- (NSString *)stringRepeated:(NSUInteger)repeatCount;
+- (NSString *)normalizedString;
 
 - (NSString *)URLEncodedString;
 - (NSString *)URLDecodedString;
+- (NSDictionary *)parametersFromURLString;
 
-/**
- Returns whole string if string is not found.
- */
 - (NSString *)substringFromString:(NSString *)string;
-
-/**
- Returns whole string if string is not found.
- */
 - (NSString *)substringToString:(NSString *)string;
-
-/**
- Returns whole string up to endString if startString is not found.
- Returns whole string from startString if endString is not found.
- Returns whole string if neither string is not found.
- */
 - (NSString *)substringBetweenString:(NSString *)startString andString:(NSString *)endString;
+
+- (NSString *)substringFromString:(NSString *)string searchFromEnd:(BOOL)searchFromEnd;
+- (NSString *)substringToString:(NSString *)string searchFromEnd:(BOOL)searchFromEnd;
+- (NSString *)substringBetweenString:(NSString *)startString andString:(NSString *)endString searchFromEnd:(BOOL)searchFromEnd;
 
 @end

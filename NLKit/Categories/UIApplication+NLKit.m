@@ -1,5 +1,5 @@
 //
-//  NSMutableArray+NLKit.h
+//  UIApplication+NLKit.m
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
 //
@@ -22,21 +22,13 @@
 //  IN THE SOFTWARE.
 //
 
-#import "NSMutableArray+NLKit.h"
-#import "NLKit.h"
+#import "UIApplication+NLKit.h"
 
-@implementation NSMutableArray (NLKit)
+@implementation UIApplication (NLKit)
 
-- (void)randomize
+- (CGFloat)applicationVersion
 {
-	for (NSInteger i = [self count]-1; i > 1; i--)
-		[self exchangeObjectAtIndex:i withObjectAtIndex:NLRandom.rint(0, i)];
-}
-
-- (void)safeAddObject:(id)anObject
-{
-	if (anObject)
-		[self addObject:anObject];
+	return [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] floatValue];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  NSMutableArray+NLKit.h
+//  NSMutableSet+NLKit.m
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
 //
@@ -22,21 +22,14 @@
 //  IN THE SOFTWARE.
 //
 
-#import "NSMutableArray+NLKit.h"
-#import "NLKit.h"
+#import "NSMutableSet+NLKit.h"
 
-@implementation NSMutableArray (NLKit)
+@implementation NSMutableSet (NLKit)
 
-- (void)randomize
+- (void)safeAddObject:(id)object
 {
-	for (NSInteger i = [self count]-1; i > 1; i--)
-		[self exchangeObjectAtIndex:i withObjectAtIndex:NLRandom.rint(0, i)];
-}
-
-- (void)safeAddObject:(id)anObject
-{
-	if (anObject)
-		[self addObject:anObject];
+	if (object)
+		[self addObject:object];
 }
 
 @end

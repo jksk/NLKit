@@ -159,4 +159,32 @@
 	return [self stringWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
 }
 
++ (NSDate *)dateFromISO8601String:(NSString *)string
+{
+	if (!string)
+		return nil;
+
+	struct tm tm;
+	time_t time;
+
+	strptime([string cStringUsingEncoding:NSUTF8StringEncoding], "%Y-%m-%dT%H:%M:%S%Z", &tm);
+
+	tm.tm_isdst	= -1;
+	time		= mktime(&tm);
+
+	return [NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)(time + [[NSTimeZone localTimeZone] secondsFromGMT])];
+}
+
+- (NSString *)ISO8601String
+{
+	struct tm* timeInfo;
+	char buffer[80];
+	time_t raw	= [self timeIntervalSince1970] - [[NSTimeZone localTimeZone] secondsFromGMT];
+	timeInfo	= localtime(&raw);
+
+	strftime(buffer, 80, "%Y-%m-%dT%H:%M%S%Z", timeInfo);
+
+	return [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+}
+
 @end

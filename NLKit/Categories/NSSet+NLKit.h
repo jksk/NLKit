@@ -27,5 +27,6 @@
 @interface NSSet (NLKit)
 
 - (NSSet *)mapSet:(id (^)(id obj))block;
+- (id)objectPassingTest:(BOOL (^)(id obj))predicate;
 
 @end

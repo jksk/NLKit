@@ -1,5 +1,5 @@
 //
-//  NSMutableArray+NLKit.h
+//  NSOperationQueue+NLKit.h
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
 //
@@ -22,21 +22,13 @@
 //  IN THE SOFTWARE.
 //
 
-#import "NSMutableArray+NLKit.h"
-#import "NLKit.h"
+#import <Foundation/Foundation.h>
 
-@implementation NSMutableArray (NLKit)
+@interface NSOperationQueue (NLKit)
 
-- (void)randomize
-{
-	for (NSInteger i = [self count]-1; i > 1; i--)
-		[self exchangeObjectAtIndex:i withObjectAtIndex:NLRandom.rint(0, i)];
-}
++ (instancetype)sharedQueue;
 
-- (void)safeAddObject:(id)anObject
-{
-	if (anObject)
-		[self addObject:anObject];
-}
+- (void)addFIFOOperation:(NSOperation *)fifoOperation;
+- (void)addLIFOOperation:(NSOperation *)lifoOperation;
 
 @end

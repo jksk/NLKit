@@ -54,4 +54,8 @@
 - (NSString *)stringWithShortDate;
 - (NSString *)stringWithShortTime;
 
+// from http://soff.es/how-to-drastically-improve-your-app-with-an-afternoon-and-instruments
++ (NSDate *)dateFromISO8601String:(NSString *)string;
+- (NSString *)ISO8601String;
+
 @end

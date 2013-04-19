@@ -35,4 +35,6 @@
 - (UIImage *)imageWithScale:(CGFloat)scale;
 - (UIImage *)retinaImage;
 
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+
 @end

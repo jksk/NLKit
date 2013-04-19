@@ -80,4 +80,32 @@
 	return [self imageWithScale:2.f];
 }
 
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees
+{
+	CGFloat radians				= _radians(degrees);
+	CGImageRef ref				= [self CGImage];
+	CGRect rect					= {0.f, 0.f, [self size]};
+	CGAffineTransform transform	= CGAffineTransformMakeRotation(radians);
+	CGRect rotatedRect			= CGRectApplyAffineTransform(rect, transform);
+	CGColorSpaceRef colorSpace	= CGColorSpaceCreateDeviceRGB();
+	CGContextRef ctx			= CGBitmapContextCreate(NULL, CGRectGetWidth(rotatedRect), CGRectGetHeight(rotatedRect), 8, 0, colorSpace, kCGImageAlphaPremultipliedFirst);
+
+	CGContextSetAllowsAntialiasing	(ctx, true);
+	CGContextSetShouldAntialias		(ctx, YES);
+	CGContextSetInterpolationQuality(ctx, kCGInterpolationHigh);
+	CGContextTranslateCTM			(ctx, CGRectGetWidth(rotatedRect) / 2, CGRectGetHeight(rotatedRect) / 2);
+	CGContextRotateCTM				(ctx, radians);
+	CGContextTranslateCTM			(ctx, -CGRectGetWidth(rotatedRect) / 2, -CGRectGetHeight(rotatedRect) / 2);
+	CGContextDrawImage				(ctx, (CGRect){0.f, 0.f, rotatedRect.size}, ref);
+
+	CGImageRef rotatedRef	= CGBitmapContextCreateImage(ctx);
+	UIImage* image			= [UIImage imageWithCGImage:rotatedRef];
+
+	CGImageRelease(rotatedRef);
+	CGColorSpaceRelease	(colorSpace);
+	CFRelease			(ctx);
+
+	return image;
+}
+
 @end

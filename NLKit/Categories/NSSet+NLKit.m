@@ -41,4 +41,14 @@
 	return [NSSet setWithSet:set];
 }
 
+- (id)objectPassingTest:(BOOL (^)(id))predicate
+{
+	for (id object in self) {
+		if (predicate(object))
+			return object;
+	}
+
+	return nil;
+}
+
 @end

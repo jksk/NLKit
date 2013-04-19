@@ -28,6 +28,7 @@
 
 - (NSString *)stringWithSeparator:(NSString *)separator;
 - (NSArray *)mapArray:(id (^)(id obj))block;
+- (id)objectPassingTest:(BOOL (^)(id))predicate;
 - (id)randomObject;
 
 - (NSArray *)subarrayFromIndex:(NSUInteger)index;

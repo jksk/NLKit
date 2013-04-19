@@ -1,5 +1,5 @@
 //
-//  NSMutableArray+NLKit.h
+//  NSOperationQueue+NLKit.h
 //
 //  Created by Jesper Skrufve <jesper@neolo.gy>
 //
@@ -22,21 +22,48 @@
 //  IN THE SOFTWARE.
 //
 
-#import "NSMutableArray+NLKit.h"
-#import "NLKit.h"
+#import "NSOperationQueue+NLKit.h"
 
-@implementation NSMutableArray (NLKit)
+@implementation NSOperationQueue (NLKit2)
 
-- (void)randomize
++ (instancetype)sharedQueue
 {
-	for (NSInteger i = [self count]-1; i > 1; i--)
-		[self exchangeObjectAtIndex:i withObjectAtIndex:NLRandom.rint(0, i)];
+	static NSOperationQueue* instance	= nil;
+	static dispatch_once_t token		= 0;
+
+	dispatch_once(&token, ^{
+
+		instance = [[self alloc] init];
+		[instance setMaxConcurrentOperationCount:4];
+	});
+
+	return instance;
 }
 
-- (void)safeAddObject:(id)anObject
+- (void)addFIFOOperation:(NSOperation *)fifoOperation
 {
-	if (anObject)
-		[self addObject:anObject];
+	[self addOperation:fifoOperation];
+}
+
+- (void)addLIFOOperation:(NSOperation *)lifoOperation
+{
+	BOOL suspended		= [self isSuspended];
+	NSArray* operations = [self operations];
+
+	[self setSuspended:YES];
+
+	for (NSOperation* operation in operations) {
+
+		if (![operation isExecuting]) {
+
+			[operation addDependency:lifoOperation];
+			break;
+		}
+	}
+
+	[self addOperation:lifoOperation];
+	[self setSuspended:suspended];
 }
 
 @end
+

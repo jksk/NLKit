@@ -62,6 +62,16 @@
 	return [NSArray	arrayWithArray:array];
 }
 
+- (id)objectPassingTest:(BOOL (^)(id))predicate
+{
+	for (id object in self) {
+		if (predicate(object))
+			return object;
+	}
+
+	return nil;
+}
+
 - (id)randomObject
 {
 	NSUInteger count = [self count];
