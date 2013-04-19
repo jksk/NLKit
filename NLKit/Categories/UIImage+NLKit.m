@@ -23,6 +23,7 @@
 //
 
 #import "UIImage+NLKit.h"
+#import "NLMacros.h"
 
 @implementation UIImage (NLKit)
 
