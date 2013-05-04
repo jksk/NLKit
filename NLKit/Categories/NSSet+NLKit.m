@@ -24,7 +24,7 @@
 
 #import "NSSet+NLKit.h"
 
-@implementation NSArray (NLKit)
+@implementation NSSet (NLKit)
 
 - (NSSet *)mapSet:(id (^)(id))block
 {
