@@ -92,4 +92,28 @@
 	return [self dequeueReusableCellWithIdentifier:NLDefaultCellIdentifier forIndexPath:indexPath];
 }
 
+- (void)scrollToTop
+{
+	[self scrollToTopAnimated:NO];
+}
+
+- (void)scrollToTopAnimated:(BOOL)animated
+{
+	CGRect rect = {0.f, 0.f, CGRectGetWidth([self bounds]), 1.f};
+	
+	[self scrollRectToVisible:rect animated:animated];
+}
+
+- (void)scrollToBottom
+{
+	[self scrollToBottomAnimated:NO];
+}
+
+- (void)scrollToBottomAnimated:(BOOL)animated
+{
+	CGRect rect = {0.f, [self contentSize].height - 1.f, CGRectGetWidth([self bounds]), 1.f};
+	
+	[self scrollRectToVisible:rect animated:animated];
+}
+
 @end

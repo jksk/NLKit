@@ -45,6 +45,14 @@
 	return [NSArray arrayWithArray:array];
 }
 
+- (NSInteger)numberOfOccurrencesOfString:(NSString *)string
+{
+	NSInteger fullLength	= [self length];
+	NSInteger removedLength = [[self stringByReplacingOccurrencesOfString:string withString:@""] length];
+	
+	return (fullLength - removedLength) / [string length];
+}
+
 - (NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)set
 {
 	NSUInteger length		= [self length];

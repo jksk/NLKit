@@ -39,4 +39,10 @@
 - (id)dequeueReusableCellWithDefaultIdentifier;
 - (id)dequeueReusableCellWithDefaultIdentifierForIndexPath:(NSIndexPath *)indexPath;
 
+- (void)scrollToTop;
+- (void)scrollToTopAnimated:(BOOL)animated;
+
+- (void)scrollToBottom;
+- (void)scrollToBottomAnimated:(BOOL)animated;
+
 @end

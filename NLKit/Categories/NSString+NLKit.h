@@ -29,6 +29,7 @@
 - (BOOL)isInteger;
 - (NSArray *)componentsSeparatedAtEachCharacter;
 
+- (NSInteger)numberOfOccurrencesOfString:(NSString *)string;
 - (NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)set;
 - (NSString *)reverseString;
 - (NSString *)firstLetterCapitalizedString;

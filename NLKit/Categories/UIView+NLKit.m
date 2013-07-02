@@ -64,6 +64,14 @@
 	return nil;
 }
 
+- (void)addSubviewAndPreservePosition:(UIView *)view
+{
+	CGPoint center = [self convertPoint:[view center] fromView:[view superview]];
+	
+	[view setCenter:center];
+	[self addSubview:view];
+}
+
 #pragma mark - Bounds
 
 @dynamic

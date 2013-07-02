@@ -26,10 +26,21 @@
 
 @interface NSArray (NLKit)
 
-- (NSString *)stringWithSeparator:(NSString *)separator;
-- (NSArray *)mapArray:(id (^)(id obj))block;
+- (NSUInteger)numberOfObjectsPassingTest:(BOOL (^)(id obj))predicate;
 - (id)objectPassingTest:(BOOL (^)(id))predicate;
+
 - (id)randomObject;
+- (NSString *)stringWithSeparator:(NSString *)separator;
+
+- (NSArray *)mapToArray:(id (^)(id obj))block;
+- (NSArray *)mapToMutableArray:(id (^)(id))block;
+- (NSSet *)mapToSet:(id (^)(id))block;
+- (NSMutableSet *)mapToMutableSet:(id (^)(id))block;
+
+- (NSSet *)set;
+- (NSMutableSet *)mutableSet;
+- (NSOrderedSet *)orderedSet;
+- (NSMutableOrderedSet *)mutableOrderedSet;
 
 - (NSArray *)subarrayFromIndex:(NSUInteger)index;
 - (NSArray *)subarrayToIndex:(NSUInteger)index;
